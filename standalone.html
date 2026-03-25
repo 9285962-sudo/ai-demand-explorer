@@ -1827,11 +1827,24 @@
   <!-- 首页 -->
   <div id="home-page" class="page active">
     <div class="home-header">
-      <div style="display:inline-flex;align-items:center;gap:8px;background:#f3f4f6;border-radius:99px;padding:5px 14px;font-size:12px;color:#6b7280;margin-bottom:14px;">
-        <span>🤖</span><span>AI应用顾问</span>
+      <!-- Logo + 品牌名并排 -->
+      <div style="display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:18px;">
+        <svg width="44" height="44" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;">
+          <!-- 外框：圆角方形，黑色 -->
+          <rect x="1" y="1" width="42" height="42" rx="10" ry="10" fill="#111827" stroke="#111827" stroke-width="1"/>
+          <!-- 内框：圆角方形，白色描边 -->
+          <rect x="6" y="6" width="32" height="32" rx="7" ry="7" fill="none" stroke="white" stroke-width="2.5"/>
+          <!-- 心电图折线，红色 -->
+          <polyline points="6,24 13,24 16,17 19,31 22,20 25,24 38,24" fill="none" stroke="#e53935" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div style="text-align:left;">
+
+          <div style="font-size:18px;font-weight:800;color:#111827;letter-spacing:-0.3px;line-height:1.2;">AI应用顾问</div>
+          <div style="font-size:11px;color:#9ca3af;letter-spacing:0.5px;">企脉 AI · QMAI</div>
+        </div>
       </div>
-      <h1>找到你的<br>AI落地机会</h1>
-      <p>3分钟精准诊断，输出定制化AI应用方案</p>
+      <h1 style="font-size:22px;line-height:1.4;">3分钟精准诊断<br>找到你的AI落地机会</h1>
+      <p>输出定制化AI应用方案，匹配行业最佳实践</p>
     </div>
     <div class="home-content">
 
@@ -1840,17 +1853,17 @@
         <div style="flex: 1; background: white; border-radius: 14px; padding: 14px 10px; text-align: center; border: 1px solid #e2e8f0; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
           <div style="font-size: 26px; margin-bottom: 8px;">🔍</div>
           <div style="font-size: 13px; font-weight: 700; color: #1e293b; margin-bottom: 4px;">痛点诊断</div>
-          <div style="font-size: 11px; color: #64748b; line-height: 1.5;">精准识别业务瓶颈，定位AI切入机会</div>
+          <div style="font-size: 11px; color: #64748b; line-height: 1.6; display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;">精准识别业务瓶颈，定位AI切入机会</div>
         </div>
         <div style="flex: 1; background: white; border-radius: 14px; padding: 14px 10px; text-align: center; border: 1px solid #e2e8f0; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
           <div style="font-size: 26px; margin-bottom: 8px;">🤖</div>
           <div style="font-size: 13px; font-weight: 700; color: #1e293b; margin-bottom: 4px;">应用方案</div>
-          <div style="font-size: 11px; color: #64748b; line-height: 1.5;">定制化AI落地路径，匹配行业最佳实践</div>
+          <div style="font-size: 11px; color: #64748b; line-height: 1.6; display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;">定制化AI落地路径，匹配行业最佳实践</div>
         </div>
         <div style="flex: 1; background: white; border-radius: 14px; padding: 14px 10px; text-align: center; border: 1px solid #e2e8f0; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
           <div style="font-size: 26px; margin-bottom: 8px;">🚀</div>
           <div style="font-size: 13px; font-weight: 700; color: #1e293b; margin-bottom: 4px;">落地陪跑</div>
-          <div style="font-size: 11px; color: #64748b; line-height: 1.5;">全程专家陪伴，确保AI项目真正见效</div>
+          <div style="font-size: 11px; color: #64748b; line-height: 1.6; display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;">全程专家陪伴，确保AI项目真正见效</div>
         </div>
       </div>
 
@@ -1859,6 +1872,11 @@
         <p>描述您的业务，AI帮您分析</p>
         <textarea id="business-input" placeholder="我是做（什么业务）的，主要帮（哪类客户）解决（什么难题）"></textarea>
         <div class="char-count" id="char-count">0 字符</div>
+        <!-- 通栏语音输入按钮 -->
+        <button id="home-voice-btn" onclick="toggleHomeVoice()" style="width:100%;padding:12px;margin-bottom:10px;background:#f9fafb;border:1.5px solid #e5e7eb;border-radius:12px;font-size:14px;font-weight:600;color:#374151;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;transition:all 0.2s;">
+          <span style="font-size:18px;">🎙️</span><span id="home-voice-label">语音输入</span>
+        </button>
+        <div id="home-voice-status" style="font-size:11px;color:#ef4444;text-align:center;margin:-6px 0 8px;min-height:16px;font-weight:500;"></div>
         <button id="start-btn" disabled>开始诊断</button>
       </div>
 
@@ -4644,6 +4662,66 @@
       stopVoice('answer');
       deepStep++;
       setTimeout(() => renderDeepQuestion(), 500);
+    }
+
+    // =============================================
+    // 首页语音输入（通栏按钮）
+    // =============================================
+    let homeVoiceRecognizer = null;
+    let homeVoiceActive = false;
+
+    function toggleHomeVoice() {
+      if (!('webkitSpeechRecognition' in window) && !('SpeechRecognition' in window)) {
+        alert('您的浏览器不支持语音识别，请使用 Chrome 浏览器');
+        return;
+      }
+      if (homeVoiceActive) {
+        stopHomeVoice();
+        return;
+      }
+      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+      homeVoiceRecognizer = new SpeechRecognition();
+      homeVoiceRecognizer.lang = 'zh-CN';
+      homeVoiceRecognizer.continuous = false;
+      homeVoiceRecognizer.interimResults = true;
+      homeVoiceActive = true;
+
+      const btn = document.getElementById('home-voice-btn');
+      const label = document.getElementById('home-voice-label');
+      const status = document.getElementById('home-voice-status');
+      btn.style.background = 'linear-gradient(135deg,#ef4444,#dc2626)';
+      btn.style.color = 'white';
+      btn.style.borderColor = '#dc2626';
+      btn.style.animation = 'voicePulse 1s infinite';
+      label.textContent = '录音中…点击停止';
+      status.textContent = '🎙️ 请说话，语音将自动填入对话框';
+
+      homeVoiceRecognizer.onresult = (e) => {
+        let transcript = '';
+        for (let i = e.resultIndex; i < e.results.length; i++) {
+          transcript += e.results[i][0].transcript;
+        }
+        const ta = document.getElementById('business-input');
+        ta.value = transcript;
+        ta.dispatchEvent(new Event('input'));
+      };
+      homeVoiceRecognizer.onerror = (e) => {
+        status.textContent = e.error === 'no-speech' ? '未检测到语音，请重试' : `识别出错: ${e.error}`;
+        stopHomeVoice();
+      };
+      homeVoiceRecognizer.onend = () => stopHomeVoice();
+      homeVoiceRecognizer.start();
+    }
+
+    function stopHomeVoice() {
+      if (homeVoiceRecognizer) { try { homeVoiceRecognizer.stop(); } catch(e) {} homeVoiceRecognizer = null; }
+      homeVoiceActive = false;
+      const btn = document.getElementById('home-voice-btn');
+      const label = document.getElementById('home-voice-label');
+      const status = document.getElementById('home-voice-status');
+      if (btn) { btn.style.background='#f9fafb'; btn.style.color='#374151'; btn.style.borderColor='#e5e7eb'; btn.style.animation=''; }
+      if (label) label.textContent = '语音输入';
+      if (status && status.textContent.includes('请说话')) status.textContent = '';
     }
 
     // =============================================
