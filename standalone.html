@@ -16,8 +16,8 @@
     
     /* 首页样式 */
     .home-header {
-      background: #ffffff;
-      border-bottom: 1px solid #f1f5f9;
+      background: linear-gradient(160deg, #c8ecd8 0%, #e8f7f0 40%, #f5fdf9 100%);
+      border-bottom: 1px solid #b8e0c8;
       padding: 32px 20px 24px;
       text-align: center;
     }
@@ -1839,12 +1839,11 @@
         </svg>
         <div style="text-align:left;">
 
-          <div style="font-size:18px;font-weight:800;color:#111827;letter-spacing:-0.3px;line-height:1.2;">AI应用顾问</div>
-          <div style="font-size:11px;color:#9ca3af;letter-spacing:0.5px;">企脉 AI · QMAI</div>
+          <div style="font-size:18px;font-weight:800;color:#1a3a2a;letter-spacing:-0.3px;line-height:1.2;">AI应用顾问</div>
+          <div style="font-size:11px;color:#5a9a72;letter-spacing:0.5px;">企脉 AI · QMAI</div>
         </div>
       </div>
-      <h1 style="font-size:22px;line-height:1.4;">3分钟精准诊断<br>找到你的AI落地机会</h1>
-      <p>输出定制化AI应用方案，匹配行业最佳实践</p>
+      <p style="font-size:13px;color:#3d7a58;margin-top:4px;">3分钟精准诊断，找到你的AI落地机会</p>
     </div>
     <div class="home-content">
 
@@ -2452,15 +2451,12 @@
     <!-- TAB 1：行业案例 -->
     <div id="dpanel-cases" class="discover-panel">
       <!-- 顶部说明条 -->
-      <div style="margin:12px 16px 0; padding:12px 14px; background:linear-gradient(135deg,#fffbeb,#fef3c7); border-radius:12px; border:1px solid #fde68a; display:flex; align-items:center; gap:10px;">
+      <div style="margin:12px 16px 0; padding:10px 14px; background:linear-gradient(135deg,#fffbeb,#fef3c7); border-radius:12px; border:1px solid #fde68a; display:flex; align-items:center; gap:10px;">
         <div style="font-size:20px; flex-shrink:0;">👑</div>
-        <div>
-          <div style="font-size:12px; font-weight:700; color:#92400e;">真实VIP深度诊断案例</div>
-          <div style="font-size:11px; color:#b45309; margin-top:2px; line-height:1.5;">来自完成12轮追问的真实企业用户，摘要公开，详情注册后查看</div>
-        </div>
+        <div style="font-size:11px; color:#b45309; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">来自完成多轮深度追问的真实企业用户，注册后查看详情</div>
       </div>
       <!-- 行业筛选 -->
-      <div style="padding:10px 16px 0; display:flex; gap:8px; overflow-x:auto; scrollbar-width:none;" id="case-filter-row">
+      <div style="padding:10px 16px 0; display:flex; gap:8px; flex-wrap:wrap;" id="case-filter-row">
         <div class="case-filter-tag selected" data-f="all" onclick="filterCases(this)">全部</div>
         <div class="case-filter-tag" data-f="制造业" onclick="filterCases(this)">制造业</div>
         <div class="case-filter-tag" data-f="零售" onclick="filterCases(this)">零售电商</div>
@@ -3648,19 +3644,19 @@
 
       list.innerHTML = filtered.map((item, index) => {
         const rankClass = index < 3 ? 'top3' : 'normal';
-        const realBadge = item.isReal ? '<span class="case-real-badge">✅ 真实用户</span>' : '<span class="case-real-badge" style="background:linear-gradient(135deg,#ede9fe,#ddd6fe);color:#6d28d9;border-color:#a78bfa;">📋 参考案例</span>';
+        const realBadge = item.isReal ? '<span class="case-real-badge">✅ 真实用户</span>' : '';
         const painTags = (item.pains || []).slice(0, 2).map(p => `<span class="case-tag case-tag-pain">${p}</span>`).join('');
         return `<div class="case-item" onclick="viewCaseDetail(${item.id})">
           <div class="case-item-header">
             <div class="case-rank ${rankClass}">${index < 3 ? ['🥇','🥈','🥉'][index] : index+1}</div>
-            <div class="case-title">${item.title}</div>
+            <div class="case-title" style="display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;">${item.title}</div>
             ${realBadge}
           </div>
-          <div class="case-info-row">
+          <div class="case-info-row" style="margin-bottom:6px;">
             <span class="case-tag case-tag-industry">${item.industry}</span>
             <span class="case-tag case-tag-scale">${item.scale}</span>
-            ${painTags}
           </div>
+          ${painTags ? `<div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px;">${painTags}</div>` : ''}
           <div class="case-summary">${item.bizDesc}</div>
           <div class="case-footer">
             <div class="case-stats">
