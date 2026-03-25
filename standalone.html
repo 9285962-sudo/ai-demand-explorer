@@ -385,6 +385,45 @@
       font-weight: 600;
     }
 
+    /* 场景类别浏览区 */
+    .collect-browse-section { margin-bottom: 20px; }
+
+    /* 场景类别卡片Tab */
+    .collect-scene-tabs {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+    .collect-scene-tab {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      padding: 10px 4px 8px;
+      background: #f0fdf6;
+      border: 1.5px solid #c8e8d4;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.2s;
+      user-select: none;
+    }
+    .collect-scene-tab:hover {
+      background: #dcf5e8;
+      border-color: #3aaa6e;
+    }
+    .collect-scene-tab.active {
+      background: #3aaa6e;
+      border-color: #3aaa6e;
+      box-shadow: 0 3px 10px rgba(58,170,110,0.3);
+    }
+    .cst-icon { font-size: 20px; line-height: 1; }
+    .cst-label {
+      font-size: 11px; font-weight: 600; color: #3d7a58;
+      text-align: center; line-height: 1.2;
+    }
+    .collect-scene-tab.active .cst-label { color: white; }
+
     /* 热门创意榜区块 */
     .collect-section { margin-bottom: 20px; }
     .collect-section-header {
@@ -2773,7 +2812,7 @@
       <div class="collect-hero-top">
         <div class="collect-hero-icon">💡</div>
         <div>
-          <div class="collect-hero-title">AI场景创意征集</div>
+          <div class="collect-hero-title">AI应用场景创意征集</div>
           <div class="collect-hero-sub">说出你的业务痛点，我们帮你变成AI产品</div>
         </div>
       </div>
@@ -2834,13 +2873,47 @@
         <button onclick="submitCollectIdea()" class="collect-submit-btn">💡 提交我的创意</button>
       </div>
 
-      <!-- 热门创意榜 -->
-      <div class="collect-section">
+      <!-- 场景类别浏览区 -->
+      <div class="collect-browse-section">
         <div class="collect-section-header">
-          <span class="collect-section-title">🔥 热门创意榜</span>
+          <span class="collect-section-title">🗂 按场景浏览创意</span>
           <span class="collect-section-tip">点赞支持创意落地</span>
         </div>
-        <div id="collect-hot-list" class="collect-hot-list">
+
+        <!-- 场景类别卡片切换 -->
+        <div id="collect-scene-tabs" class="collect-scene-tabs">
+          <div class="collect-scene-tab active" data-tab="营销获客" onclick="switchCollectTab(this)">
+            <span class="cst-icon">📣</span>
+            <span class="cst-label">营销获客</span>
+          </div>
+          <div class="collect-scene-tab" data-tab="客户服务" onclick="switchCollectTab(this)">
+            <span class="cst-icon">🎧</span>
+            <span class="cst-label">客户服务</span>
+          </div>
+          <div class="collect-scene-tab" data-tab="生产运营" onclick="switchCollectTab(this)">
+            <span class="cst-icon">⚙️</span>
+            <span class="cst-label">生产运营</span>
+          </div>
+          <div class="collect-scene-tab" data-tab="人力管理" onclick="switchCollectTab(this)">
+            <span class="cst-icon">👥</span>
+            <span class="cst-label">人力管理</span>
+          </div>
+          <div class="collect-scene-tab" data-tab="财务合规" onclick="switchCollectTab(this)">
+            <span class="cst-icon">📊</span>
+            <span class="cst-label">财务合规</span>
+          </div>
+          <div class="collect-scene-tab" data-tab="数据分析" onclick="switchCollectTab(this)">
+            <span class="cst-icon">🔍</span>
+            <span class="cst-label">数据分析</span>
+          </div>
+          <div class="collect-scene-tab" data-tab="其他" onclick="switchCollectTab(this)">
+            <span class="cst-icon">💡</span>
+            <span class="cst-label">其他</span>
+          </div>
+        </div>
+
+        <!-- 对应场景创意列表 -->
+        <div id="collect-scene-list" class="collect-hot-list">
           <!-- 动态渲染 -->
         </div>
       </div>
@@ -4254,10 +4327,65 @@
     // 用户提交的创意（本地存储）
     let userCollectIdeas = JSON.parse(localStorage.getItem('collectIdeas') || '[]');
 
-    // 当前选中场景
-    let collectSelectedScene = '营销获客';
+    // 当前选中浏览场景
+    let collectActiveTab = '营销获客';
 
-    // 选择场景标签
+    // 场景Tab切换
+    function switchCollectTab(el) {
+      document.querySelectorAll('.collect-scene-tab').forEach(t => t.classList.remove('active'));
+      el.classList.add('active');
+      collectActiveTab = el.dataset.tab;
+      renderCollectSceneList();
+    }
+
+    // 渲染当前场景创意列表
+    function renderCollectSceneList() {
+      const container = document.getElementById('collect-scene-list');
+      if (!container) return;
+      const allItems = [...collectHotData, ...userCollectIdeas]
+        .filter(i => i.scene === collectActiveTab)
+        .sort((a, b) => b.likes - a.likes);
+      if (allItems.length === 0) {
+        container.innerHTML = `<div style="text-align:center;padding:32px 0;color:#94a3b8;font-size:13px;">
+          <div style="font-size:32px;margin-bottom:8px;">📭</div>
+          <div>暂无「${collectActiveTab}」场景创意</div>
+          <div style="font-size:12px;margin-top:4px;">成为第一个提交的人吧！</div>
+        </div>`;
+        return;
+      }
+      const rankColors = ['#f59e0b','#94a3b8','#cd7c4a'];
+      const rankEmojis = ['🥇','🥈','🥉'];
+      container.innerHTML = allItems.map((item, idx) => {
+        const rankColor = rankColors[idx] || '#e2e8f0';
+        const rankLabel = rankEmojis[idx] || `<span style="font-size:11px;font-weight:700;">${idx+1}</span>`;
+        return `<div class="collect-hot-card">
+          <div class="collect-hot-rank" style="background:${rankColor}22; color:${rankColor};">${rankLabel}</div>
+          <div style="flex:1; min-width:0;">
+            <div class="collect-hot-title">${item.title}</div>
+            <div class="collect-hot-desc">${item.desc}</div>
+          </div>
+          <button class="collect-like-btn ${item.liked ? 'liked' : ''}" onclick="toggleCollectLike(${item.id}, this)">
+            <span class="like-icon">${item.liked ? '💚' : '🤍'}</span>
+            <span class="like-count">${item.likes}</span>
+          </button>
+        </div>`;
+      }).join('');
+    }
+
+    // 初始化需求征集页
+    function initCollectPage() {
+      collectActiveTab = '营销获客';
+      document.querySelectorAll('.collect-scene-tab').forEach(t => {
+        t.classList.toggle('active', t.dataset.tab === collectActiveTab);
+      });
+      renderCollectSceneList();
+    }
+
+    // 渲染热门创意榜（兼容旧调用，已废弃，保留空函数防报错）
+    function renderCollectHotList() { renderCollectSceneList(); }
+
+    // 提交场景标签选择（提交表单用）
+    let collectSelectedScene = '营销获客';
     function selectCollectScene(el) {
       document.querySelectorAll('.collect-scene-tag').forEach(t => t.classList.remove('selected'));
       el.classList.add('selected');
@@ -4296,34 +4424,12 @@
       document.getElementById('collect-contact').value = '';
       document.getElementById('collect-char-count').textContent = '0';
       saToast('✅ 创意已提交！我们将在3个工作日内评估并回复');
-      renderCollectHotList();
+      // 切换到刚提交的场景Tab
+      const targetTab = document.querySelector(`.collect-scene-tab[data-tab="${collectSelectedScene}"]`);
+      if (targetTab) switchCollectTab(targetTab);
+      else renderCollectSceneList();
     }
 
-    // 渲染热门创意榜
-    function renderCollectHotList() {
-      const container = document.getElementById('collect-hot-list');
-      if (!container) return;
-      // 合并内置 + 用户提交，按likes倒序
-      const merged = [...collectHotData, ...userCollectIdeas].sort((a, b) => b.likes - a.likes).slice(0, 8);
-      const rankColors = ['#f59e0b','#94a3b8','#cd7c4a'];
-      const rankEmojis = ['🥇','🥈','🥉'];
-      container.innerHTML = merged.map((item, idx) => {
-        const rankColor = rankColors[idx] || '#e2e8f0';
-        const rankLabel = rankEmojis[idx] || `<span style="font-size:11px;font-weight:700;">${idx+1}</span>`;
-        return `<div class="collect-hot-card">
-          <div class="collect-hot-rank" style="background:${rankColor}22; color:${rankColor};">${rankLabel}</div>
-          <div style="flex:1; min-width:0;">
-            <div class="collect-hot-scene">${item.scene}</div>
-            <div class="collect-hot-title">${item.title}</div>
-            <div class="collect-hot-desc">${item.desc}</div>
-          </div>
-          <button class="collect-like-btn ${item.liked ? 'liked' : ''}" onclick="toggleCollectLike(${item.id}, this)">
-            <span class="like-icon">${item.liked ? '💚' : '🤍'}</span>
-            <span class="like-count">${item.likes}</span>
-          </button>
-        </div>`;
-      }).join('');
-    }
 
     // 点赞切换
     function toggleCollectLike(id, btn) {
@@ -4333,7 +4439,7 @@
       item.likes += item.liked ? 1 : -1;
       if (item.likes < 0) item.likes = 0;
       localStorage.setItem('collectIdeas', JSON.stringify(userCollectIdeas));
-      renderCollectHotList();
+      renderCollectSceneList();
     }
     
     // 格式化数字
@@ -4376,9 +4482,9 @@
         // 确保默认激活第一个TAB
         switchDiscoverTab('cases');
       }
-      // 如果进入需求征集页，渲染热门创意
+      // 如果进入需求征集页，初始化场景列表
       if (pageId === 'collect-page') {
-        renderCollectHotList();
+        initCollectPage();
       }
     };
 
