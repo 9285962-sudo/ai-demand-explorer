@@ -16,15 +16,18 @@
     
     /* 首页样式 */
     .home-header {
-      background: linear-gradient(180deg, #8fd4aa 0%, #b8e8cc 30%, #ddf3e8 60%, #f0fbf5 85%, #ffffff 100%);
+      background: linear-gradient(180deg, #8fd4aa 0%, #b8e8cc 35%, #ddf3e8 65%, #eef9f2 85%, #f5fdf8 100%);
       border-bottom: none;
-      padding: 32px 20px 36px;
+      padding: 32px 20px 0;
       text-align: center;
     }
     .home-header h1 { font-size: 24px; margin-bottom: 8px; color: #111827; font-weight: 800; letter-spacing: -0.5px; }
     .home-header p { font-size: 14px; color: #6b7280; }
     
-    .home-content { padding: 20px; background: #ffffff; }
+    .home-content {
+      padding: 20px;
+      background: linear-gradient(180deg, #f5fdf8 0%, #eef9f2 20%, #ffffff 55%);
+    }
     .start-card {
       background: white;
       border-radius: 16px;
@@ -77,13 +80,29 @@
     
     /* 行业选择页 */
     .page-header {
-      background: linear-gradient(180deg, #8fd4aa 0%, #c2ebd5 60%, #eaf7f0 100%);
+      background: linear-gradient(180deg, #8fd4aa 0%, #b8e8cc 40%, #d8f1e6 70%, #eef9f2 100%);
       border-bottom: none;
-      padding: 16px 20px;
+      padding: 16px 20px 40px;
       color: #0f2a1c;
       display: flex;
       align-items: center;
       gap: 16px;
+    }
+    /* 内页内容区顶部用负 margin 拉到绿色渐变末端下方，实现无缝接续 */
+    .page-header + * {
+      margin-top: -24px;
+      position: relative;
+      z-index: 1;
+      background: white;
+      border-radius: 20px 20px 0 0;
+      min-height: 40px;
+    }
+    /* discover-tab-bar 特殊处理：毛玻璃效果，不强制白底 */
+    .page-header + .discover-tab-bar {
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-radius: 0;
     }
     .back-btn {
       width: 36px;
@@ -104,6 +123,8 @@
       grid-template-columns: repeat(3, 1fr);
       gap: 12px;
       padding: 20px;
+      background: white;
+      border-radius: 20px 20px 0 0;
     }
     .industry-item {
       background: white;
@@ -615,8 +636,10 @@
     /* 应用案例页 TAB 导航 */
     .discover-tab-bar {
       display: flex;
-      background: white;
-      border-bottom: 2px solid #f1f5f9;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(58,170,110,0.15);
       position: sticky;
       top: 0;
       z-index: 10;
@@ -2694,7 +2717,7 @@
       <div class="back-btn" onclick="showPage('home-page')">‹</div>
       <h2>个人中心</h2>
     </div>
-    <div style="padding: 20px;">
+    <div style="padding: 20px; margin-top: -24px; position: relative; z-index: 1;">
       <!-- 用户信息卡片 -->
       <div style="background: white; border-radius: 16px; padding: 24px; margin-bottom: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); display: flex; align-items: center; gap: 16px;">
         <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #6366f1, #4f46e5); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px; flex-shrink: 0;">👤</div>
