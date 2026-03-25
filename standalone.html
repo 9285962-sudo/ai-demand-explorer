@@ -74,7 +74,7 @@
       cursor: not-allowed;
     }
     button:not(:disabled) {
-      background: #111827;
+      background: linear-gradient(135deg, #3aaa6e, #2d8a58);
       color: white;
     }
     
@@ -166,16 +166,16 @@
       border: 2px solid #e2e8f0;
       transition: all 0.2s;
     }
-    .sub-industry-item:hover { border-color: #6366f1; color: #6366f1; }
+    .sub-industry-item:hover { border-color: #3aaa6e; color: #1a7a40; }
     .sub-industry-item.selected {
-      background: #6366f1;
+      background: #3aaa6e;
       color: white;
-      border-color: #6366f1;
+      border-color: #3aaa6e;
     }
     
     .next-btn {
       margin: 20px;
-      background: #111827;
+      background: linear-gradient(135deg, #3aaa6e, #2d8a58);
       color: white;
       display: none;
     }
@@ -201,16 +201,16 @@
       transition: all 0.2s;
     }
     .sub-page-item:hover {
-      border-color: #111827;
-      color: #111827;
+      border-color: #3aaa6e;
+      color: #1a7a40;
       transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 12px rgba(58,170,110,0.15);
     }
     .sub-page-item.selected {
-      background: #111827;
+      background: #3aaa6e;
       color: white;
-      border-color: #111827;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+      border-color: #3aaa6e;
+      box-shadow: 0 4px 16px rgba(58,170,110,0.3);
     }
     
     /* 底部导航 */
@@ -252,9 +252,9 @@
       user-select: none;
     }
     .case-filter-tag.selected {
-      background: #eef2ff;
-      color: #4f46e5;
-      border-color: #6366f1;
+      background: #f0fdf6;
+      color: #1a7a40;
+      border-color: #3aaa6e;
       font-weight: 600;
     }
 
@@ -595,10 +595,10 @@
       border: 2px solid transparent;
       transition: all 0.2s;
     }
-    .scale-option:hover { border-color: #111827; }
+    .scale-option:hover { border-color: #3aaa6e; }
     .scale-option.selected {
-      border-color: #111827;
-      background: #f9fafb;
+      border-color: #3aaa6e;
+      background: #f0fdf6;
     }
     .scale-option h4 { color: #1e293b; margin-bottom: 4px; }
     .scale-option p { color: #64748b; font-size: 13px; }
@@ -752,29 +752,29 @@
       user-select: none;
       display: flex; align-items: center; gap: 4px;
     }
-    .tag-chip:hover { border-color: #111827; color: #111827; background: #f9fafb; }
+    .tag-chip:hover { border-color: #3aaa6e; color: #1a7a40; background: #f0fdf6; }
     .tag-chip.selected {
-      background: #111827;
-      border-color: #111827;
+      background: #3aaa6e;
+      border-color: #3aaa6e;
       color: white;
       font-weight: 600;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      box-shadow: 0 2px 8px rgba(58,170,110,0.3);
     }
     .tag-chip.ai-recommended {
-      border-color: #34d399;
-      color: #065f46;
-      background: #ecfdf5;
+      border-color: #3aaa6e;
+      color: #0f6630;
+      background: #f0fdf6;
     }
     .tag-chip.ai-recommended::before {
       content: '✦';
       font-size: 9px;
-      color: #10b981;
+      color: #3aaa6e;
     }
     .tag-chip.ai-recommended.selected {
-      background: linear-gradient(135deg, #10b981, #059669);
-      border-color: #059669;
+      background: linear-gradient(135deg, #3aaa6e, #2d8a58);
+      border-color: #2d8a58;
       color: white;
-      box-shadow: 0 2px 8px rgba(16,185,129,0.35);
+      box-shadow: 0 2px 8px rgba(58,170,110,0.35);
     }
     .tag-chip.ai-recommended.selected::before {
       color: rgba(255,255,255,0.8);
@@ -794,7 +794,7 @@
     }
     .summary-chip {
       padding: 2px 10px;
-      background: #6366f1;
+      background: #3aaa6e;
       color: white;
       border-radius: 99px;
       font-size: 11px;
@@ -817,17 +817,17 @@
       transition: all 0.2s;
       position: relative;
     }
-    .pain-point-item:hover { border-color: #f59e0b; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(245,158,11,0.15); }
+    .pain-point-item:hover { border-color: #3aaa6e; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(58,170,110,0.15); }
     .pain-point-item.selected {
-      border-color: #f59e0b;
-      background: linear-gradient(135deg, #fffbeb, #fef3c7);
-      box-shadow: 0 4px 16px rgba(245,158,11,0.25);
+      border-color: #3aaa6e;
+      background: linear-gradient(135deg, #f0fdf6, #e8f7ef);
+      box-shadow: 0 4px 16px rgba(58,170,110,0.25);
     }
     .pain-point-item .check-badge {
       position: absolute;
       top: 8px; right: 8px;
       width: 18px; height: 18px;
-      background: #f59e0b;
+      background: #3aaa6e;
       border-radius: 50%;
       display: none;
       align-items: center;
@@ -844,16 +844,16 @@
     .pain-select-hint {
       margin: 0 20px 0;
       padding: 10px 14px;
-      background: linear-gradient(135deg, #fffbeb, #fef3c7);
+      background: linear-gradient(135deg, #f0fdf6, #dcfce7);
       border-radius: 10px;
-      border: 1px solid #fde68a;
+      border: 1px solid #a7f3d0;
       font-size: 12px;
-      color: #92400e;
+      color: #1a7a40;
       display: flex;
       align-items: center;
       justify-content: space-between;
     }
-    .pain-select-count { font-weight: 700; color: #d97706; font-size: 14px; }
+    .pain-select-count { font-weight: 700; color: #1a7a40; font-size: 14px; }
     
     /* 报告页 */
     .report-content {
@@ -882,13 +882,13 @@
     .report-label { color: #64748b; font-size: 14px; }
     .report-value { color: #1e293b; font-weight: 500; font-size: 14px; }
     .ai-suggestion {
-      background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+      background: linear-gradient(135deg, #f0fdf6 0%, #e8f7ef 100%);
       border-radius: 12px;
       padding: 16px;
       margin-top: 16px;
     }
-    .ai-suggestion h4 { color: #1e40af; margin-bottom: 8px; }
-    .ai-suggestion p { color: #1e3a8a; font-size: 14px; line-height: 1.6; }
+    .ai-suggestion h4 { color: #1a7a40; margin-bottom: 8px; }
+    .ai-suggestion p { color: #2d6644; font-size: 14px; line-height: 1.6; }
     
     /* 发现页面样式 */
     .discover-section {
@@ -947,8 +947,8 @@
     }
     .section-tag {
       font-size: 11px;
-      color: #6366f1;
-      background: #eef2ff;
+      color: #1a7a40;
+      background: #f0fdf6;
       padding: 4px 10px;
       border-radius: 12px;
     }
@@ -971,8 +971,8 @@
       overflow: hidden;
     }
     .case-item:hover {
-      box-shadow: 0 6px 20px rgba(99,102,241,0.12);
-      border-color: #6366f1;
+      box-shadow: 0 6px 20px rgba(58,170,110,0.12);
+      border-color: #3aaa6e;
       transform: translateY(-1px);
     }
     .case-item-header {
@@ -993,7 +993,7 @@
       flex-shrink: 0;
       margin-top: 1px;
     }
-    .case-rank.top3 { background: linear-gradient(135deg, #fbbf24, #f59e0b); color: white; }
+    .case-rank.top3 { background: linear-gradient(135deg, #3aaa6e, #2d8a58); color: white; }
     .case-rank.normal { background: #f1f5f9; color: #64748b; }
     .case-title {
       font-size: 14px;
@@ -1027,9 +1027,9 @@
       border-radius: 99px;
       font-weight: 500;
     }
-    .case-tag-industry { background: #eef2ff; color: #4f46e5; }
-    .case-tag-scale    { background: #f0fdf4; color: #166534; }
-    .case-tag-pain     { background: #fff7ed; color: #c2410c; }
+    .case-tag-industry { background: #f0fdf6; color: #1a7a40; }
+    .case-tag-scale    { background: #e8f7ef; color: #2d8a58; }
+    .case-tag-pain     { background: #d8f1e6; color: #0f6630; }
     /* 摘要行 */
     .case-summary {
       font-size: 12px;
@@ -1052,7 +1052,7 @@
     .case-stats { font-size: 11px; color: #94a3b8; display: flex; gap: 10px; }
     .case-read-btn {
       font-size: 12px;
-      color: #6366f1;
+      color: #1a7a40;
       font-weight: 600;
       display: flex;
       align-items: center;
@@ -1098,15 +1098,15 @@
       font-size: 13px;
       line-height: 1.7;
     }
-    .cd-section.biz      { background: #f8fafc; }
+    .cd-section.biz      { background: #f8fdf9; }
     .cd-section.biz .cd-section-label { color: #64748b; }
     .cd-section.biz .cd-section-text  { color: #334155; }
-    .cd-section.pain     { background: #fff7ed; }
-    .cd-section.pain .cd-section-label { color: #ea580c; }
-    .cd-section.pain .cd-section-text  { color: #7c2d12; }
-    .cd-section.solution { background: #f0fdf4; }
-    .cd-section.solution .cd-section-label { color: #16a34a; }
-    .cd-section.solution .cd-section-text  { color: #14532d; }
+    .cd-section.pain     { background: #f0fdf6; }
+    .cd-section.pain .cd-section-label { color: #1a7a40; }
+    .cd-section.pain .cd-section-text  { color: #334155; }
+    .cd-section.solution { background: #e8f7ef; }
+    .cd-section.solution .cd-section-label { color: #0f6630; }
+    .cd-section.solution .cd-section-text  { color: #1e293b; }
     /* 注册遮罩（覆盖详情下半部分） */
     .case-lock-mask {
       position: relative;
@@ -1135,8 +1135,8 @@
       border: 1px solid #e2e8f0;
     }
     .product-card:hover {
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-      border-color: #6366f1;
+      box-shadow: 0 4px 12px rgba(58,170,110,0.12);
+      border-color: #3aaa6e;
       transform: translateY(-2px);
     }
     .product-icon {
@@ -1156,7 +1156,7 @@
     
     /* ---- 我们的AI应用：业务介绍 ---- */
     .biz-intro-banner {
-      background: linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #4f46e5 100%);
+      background: linear-gradient(135deg, #0a2a18 0%, #0f3d22 50%, #1a5c33 100%);
       border-radius: 16px;
       padding: 20px;
       margin-bottom: 16px;
@@ -1205,7 +1205,7 @@
     .biz-stat-num {
       font-size: 17px;
       font-weight: 700;
-      color: #c4b5fd;
+      color: #7de8a8;
     }
     .biz-stat-label {
       font-size: 10px;
@@ -1223,8 +1223,8 @@
       margin-bottom: 10px;
     }
     .service-card:hover {
-      border-color: #6366f1;
-      box-shadow: 0 4px 18px rgba(99,102,241,0.12);
+      border-color: #3aaa6e;
+      box-shadow: 0 4px 18px rgba(58,170,110,0.12);
       transform: translateY(-2px);
     }
     .service-card-header {
@@ -1290,11 +1290,11 @@
       position: absolute;
       top: 0; left: 0; right: 0;
       height: 3px;
-      background: linear-gradient(90deg, #6366f1, #8b5cf6, #ec4899);
+      background: linear-gradient(90deg, #3aaa6e, #2d8a58, #1a7a40);
     }
     .our-case-card:hover {
-      border-color: #a5b4fc;
-      box-shadow: 0 6px 22px rgba(99,102,241,0.14);
+      border-color: #3aaa6e;
+      box-shadow: 0 6px 22px rgba(58,170,110,0.14);
       transform: translateY(-2px);
     }
     .our-case-header {
@@ -1320,7 +1320,7 @@
     .our-case-result {
       font-size: 13px;
       font-weight: 600;
-      color: #4f46e5;
+      color: #1a7a40;
       margin-bottom: 6px;
       line-height: 1.4;
     }
@@ -1348,12 +1348,12 @@
       font-size: 10px;
       padding: 2px 8px;
       border-radius: 99px;
-      background: #eef2ff;
-      color: #4f46e5;
+      background: #f0fdf6;
+      color: #1a7a40;
     }
     .our-case-read-more {
       font-size: 12px;
-      color: #6366f1;
+      color: #1a7a40;
       display: flex;
       align-items: center;
       gap: 3px;
@@ -1409,7 +1409,7 @@
     }
     .ocd-highlight {
       display: inline-block;
-      background: linear-gradient(90deg, #6366f1, #8b5cf6);
+      background: linear-gradient(90deg, #1a7a40, #3aaa6e);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       font-weight: 700;
@@ -1437,13 +1437,13 @@
       position: absolute;
       top: 0; left: 0; right: 0;
       height: 3px;
-      background: linear-gradient(90deg, #6366f1, #8b5cf6, #ec4899);
+      background: linear-gradient(90deg, #3aaa6e, #2d8a58, #1a7a40);
       opacity: 0;
       transition: opacity 0.2s;
     }
     .news-item:hover {
-      box-shadow: 0 4px 16px rgba(99,102,241,0.12);
-      border-color: #a5b4fc;
+      box-shadow: 0 4px 16px rgba(58,170,110,0.12);
+      border-color: #3aaa6e;
       transform: translateY(-1px);
     }
     .news-item:hover::before { opacity: 1; }
@@ -1455,8 +1455,8 @@
       margin-bottom: 6px;
     }
     .news-tag {
-      background: #eef2ff;
-      color: #4f46e5;
+      background: #f0fdf6;
+      color: #1a7a40;
       padding: 2px 9px;
       border-radius: 10px;
       font-size: 10px;
@@ -1470,7 +1470,7 @@
     }
     .news-badge-new {
       font-size: 10px;
-      background: linear-gradient(90deg, #f97316, #ef4444);
+      background: linear-gradient(90deg, #3aaa6e, #2d8a58);
       color: white;
       padding: 1px 7px;
       border-radius: 99px;
@@ -1507,7 +1507,7 @@
     }
     .news-read-btn {
       font-size: 11px;
-      color: #6366f1;
+      color: #1a7a40;
       display: flex;
       align-items: center;
       gap: 3px;
@@ -1541,8 +1541,8 @@
       font-size: 10px;
       padding: 3px 10px;
       border-radius: 99px;
-      background: #eef2ff;
-      color: #4f46e5;
+      background: #f0fdf6;
+      color: #1a7a40;
       font-weight: 600;
       margin-bottom: 10px;
     }
@@ -1569,13 +1569,13 @@
       margin-bottom: 14px;
     }
     .news-detail-insight {
-      background: linear-gradient(135deg, #f5f3ff, #ede9fe);
-      border-left: 3px solid #6366f1;
+      background: linear-gradient(135deg, #f0fdf6, #e8f7ef);
+      border-left: 3px solid #3aaa6e;
       border-radius: 0 10px 10px 0;
       padding: 12px 14px;
       margin: 16px 0;
       font-size: 13px;
-      color: #4f46e5;
+      color: #1a7a40;
       line-height: 1.7;
     }
 
@@ -1587,8 +1587,8 @@
       border-radius: 20px;
       overflow: hidden;
       position: relative;
-      background: linear-gradient(135deg, #0f172a 0%, #1a1f3a 50%, #0f2027 100%);
-      box-shadow: 0 8px 32px rgba(99,102,241,0.3);
+      background: linear-gradient(135deg, #0a2a18 0%, #0f3d22 50%, #1a5c33 100%);
+      box-shadow: 0 8px 32px rgba(26,90,51,0.4);
     }
     .vip-entry-card::before {
       content: '';
@@ -1596,7 +1596,7 @@
       top: -40px; right: -40px;
       width: 160px; height: 160px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(99,102,241,0.3) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(58,170,110,0.3) 0%, transparent 70%);
     }
     .vip-entry-card::after {
       content: '';
@@ -1604,12 +1604,12 @@
       bottom: -30px; left: -20px;
       width: 120px; height: 120px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(16,185,129,0.2) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(58,170,110,0.2) 0%, transparent 70%);
     }
     .vip-entry-inner { padding: 24px 20px; position: relative; z-index: 1; }
     .vip-badge {
       display: inline-flex; align-items: center; gap: 6px;
-      background: linear-gradient(135deg, #f59e0b, #d97706);
+      background: linear-gradient(135deg, #3aaa6e, #2d8a58);
       border-radius: 99px; padding: 4px 12px;
       font-size: 11px; font-weight: 700; color: white;
       margin-bottom: 14px; letter-spacing: 0.05em;
@@ -1618,7 +1618,7 @@
       font-size: 20px; font-weight: 800; color: white;
       margin-bottom: 6px; line-height: 1.3;
     }
-    .vip-entry-title span { color: #a5b4fc; }
+    .vip-entry-title span { color: #7de8a8; }
     .vip-entry-sub {
       font-size: 13px; color: rgba(255,255,255,0.65);
       line-height: 1.6; margin-bottom: 18px;
@@ -1647,7 +1647,7 @@
     }
     .vip-price-new {
       font-size: 28px; font-weight: 800;
-      background: linear-gradient(135deg, #fbbf24, #f59e0b);
+      background: linear-gradient(135deg, #7de8a8, #3aaa6e);
       -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     }
     .vip-price-old {
@@ -1655,16 +1655,16 @@
       text-decoration: line-through;
     }
     .vip-price-tag {
-      background: rgba(239,68,68,0.2); border: 1px solid rgba(239,68,68,0.4);
-      color: #fca5a5; border-radius: 6px;
+      background: rgba(58,170,110,0.2); border: 1px solid rgba(58,170,110,0.4);
+      color: #7de8a8; border-radius: 6px;
       font-size: 11px; font-weight: 700; padding: 2px 8px;
     }
     .vip-cta-btn {
       width: 100%; padding: 15px;
-      background: linear-gradient(135deg, #6366f1, #4f46e5);
+      background: linear-gradient(135deg, #3aaa6e, #2d8a58);
       color: white; border: none; border-radius: 14px;
       font-size: 16px; font-weight: 700; cursor: pointer;
-      box-shadow: 0 4px 20px rgba(99,102,241,0.5);
+      box-shadow: 0 4px 20px rgba(58,170,110,0.5);
       transition: all 0.2s;
       position: relative; overflow: hidden;
     }
@@ -1684,13 +1684,13 @@
       overflow: hidden;
     }
     .deep-chat-header {
-      background: linear-gradient(135deg, #0f172a, #1e293b);
+      background: linear-gradient(135deg, #0a2a18, #1a5c33);
       padding: 14px 16px;
       display: flex; align-items: center; gap: 12px;
     }
     .deep-chat-avatar {
       width: 40px; height: 40px;
-      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+      background: linear-gradient(135deg, #3aaa6e, #2d8a58);
       border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
       font-size: 20px; flex-shrink: 0;
@@ -1705,8 +1705,8 @@
       width: 6px; height: 6px; border-radius: 50%;
       background: rgba(255,255,255,0.2); transition: all 0.3s;
     }
-    .deep-chat-dot.done { background: #10b981; }
-    .deep-chat-dot.current { background: #6366f1; transform: scale(1.4); }
+    .deep-chat-dot.done { background: #3aaa6e; }
+    .deep-chat-dot.current { background: #7de8a8; transform: scale(1.4); }
 
     .deep-chat-body {
       flex: 1; overflow-y: auto;
@@ -1728,8 +1728,8 @@
       display: flex; align-items: center; justify-content: center;
       font-size: 15px; flex-shrink: 0;
     }
-    .ai-avatar-sm { background: linear-gradient(135deg, #6366f1, #8b5cf6); }
-    .user-avatar-sm { background: linear-gradient(135deg, #0f172a, #1e3a5f); }
+    .ai-avatar-sm { background: linear-gradient(135deg, #3aaa6e, #2d8a58); }
+    .user-avatar-sm { background: linear-gradient(135deg, #1a5c33, #0f3d22); }
     .chat-bubble {
       max-width: 78%; padding: 12px 14px;
       border-radius: 16px; font-size: 14px; line-height: 1.6;
@@ -1740,7 +1740,7 @@
       box-shadow: 0 2px 8px rgba(0,0,0,0.06);
     }
     .user-bubble {
-      background: linear-gradient(135deg, #6366f1, #4f46e5);
+      background: linear-gradient(135deg, #3aaa6e, #2d8a58);
       color: white; border-bottom-right-radius: 4px;
     }
     .chat-typing {
@@ -1773,8 +1773,8 @@
       cursor: pointer; text-align: left;
       transition: all 0.15s;
     }
-    .chat-option-btn:hover { border-color: #6366f1; background: #eef2ff; color: #4f46e5; }
-    .chat-option-btn.selected { background: #6366f1; color: white; border-color: #4f46e5; }
+    .chat-option-btn:hover { border-color: #3aaa6e; background: #f0fdf6; color: #1a7a40; }
+    .chat-option-btn.selected { background: #3aaa6e; color: white; border-color: #2d8a58; }
     .deep-chat-text-input {
       display: flex; gap: 8px; align-items: flex-end;
     }
@@ -1785,7 +1785,7 @@
       max-height: 100px; font-family: inherit;
       line-height: 1.5; transition: border-color 0.15s;
     }
-    .deep-chat-textarea:focus { outline: none; border-color: #6366f1; }
+    .deep-chat-textarea:focus { outline: none; border-color: #3aaa6e; }
 
     /* 语音录入按钮 */
     .voice-btn {
@@ -1795,18 +1795,18 @@
       cursor: pointer; font-size: 18px; flex-shrink: 0;
       transition: all 0.2s; color: #64748b;
     }
-    .voice-btn:hover { background: #e0e7ff; border-color: #6366f1; color: #6366f1; }
+    .voice-btn:hover { background: #f0fdf6; border-color: #3aaa6e; color: #1a7a40; }
     .voice-btn.recording {
-      background: linear-gradient(135deg, #ef4444, #dc2626);
-      border-color: #dc2626; color: white;
+      background: linear-gradient(135deg, #1a7a40, #0f6630);
+      border-color: #0f6630; color: white;
       animation: voicePulse 1s infinite;
     }
     @keyframes voicePulse {
-      0%,100% { box-shadow: 0 0 0 0 rgba(239,68,68,0.4); }
-      50% { box-shadow: 0 0 0 8px rgba(239,68,68,0); }
+      0%,100% { box-shadow: 0 0 0 0 rgba(26,122,64,0.4); }
+      50% { box-shadow: 0 0 0 8px rgba(26,122,64,0); }
     }
     .voice-status {
-      font-size: 11px; color: #ef4444; text-align: center;
+      font-size: 11px; color: #1a7a40; text-align: center;
       margin-top: 4px; min-height: 16px; font-weight: 500;
     }
 
@@ -1815,11 +1815,11 @@
       display: flex; align-items: center; justify-content: center; gap: 8px;
       margin-top: 10px;
       padding: 10px 16px;
-      background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+      background: linear-gradient(135deg, #3aaa6e 0%, #2d8a58 100%);
       border-radius: 12px;
       cursor: pointer;
       user-select: none;
-      box-shadow: 0 4px 14px rgba(79,70,229,0.35);
+      box-shadow: 0 4px 14px rgba(58,170,110,0.35);
       transition: all 0.2s;
       position: relative;
       overflow: hidden;
@@ -1837,7 +1837,7 @@
     }
     .user-ask-toggle:hover {
       transform: translateY(-1px);
-      box-shadow: 0 6px 20px rgba(79,70,229,0.45);
+      box-shadow: 0 6px 20px rgba(58,170,110,0.45);
     }
     .user-ask-toggle:active { transform: scale(0.98); }
     .user-ask-toggle .ask-icon { font-size: 18px; }
@@ -1851,15 +1851,15 @@
       font-weight: 500;
     }
     .user-ask-toggle.open {
-      background: linear-gradient(135deg, #0f172a, #1e293b);
+      background: linear-gradient(135deg, #0f3d22, #1a5c33);
       box-shadow: 0 2px 8px rgba(0,0,0,0.2);
     }
     .user-ask-panel {
       display: none; margin-top: 10px;
-      background: linear-gradient(135deg, #f5f3ff, #ede9fe);
+      background: linear-gradient(135deg, #f0fdf6, #e8f7ef);
       border-radius: 14px;
-      border: 1.5px solid #a78bfa; padding: 14px;
-      box-shadow: 0 4px 16px rgba(109,40,217,0.1);
+      border: 1.5px solid #3aaa6e; padding: 14px;
+      box-shadow: 0 4px 16px rgba(58,170,110,0.1);
     }
     .user-ask-panel.show { display: block; animation: panelSlideIn 0.2s ease; }
     @keyframes panelSlideIn {
@@ -1870,23 +1870,23 @@
       display: flex; gap: 6px; align-items: flex-end;
     }
     .user-ask-textarea {
-      flex: 1; border: 1.5px solid #c7d2fe;
+      flex: 1; border: 1.5px solid #c8e8d4;
       border-radius: 8px; padding: 8px 10px;
       font-size: 13px; resize: none; min-height: 36px;
       max-height: 80px; font-family: inherit; line-height: 1.5;
       transition: border-color 0.15s; background: white;
     }
-    .user-ask-textarea:focus { outline: none; border-color: #6366f1; }
+    .user-ask-textarea:focus { outline: none; border-color: #3aaa6e; }
     .user-ask-send {
       width: 36px; height: 36px; border-radius: 8px;
-      background: linear-gradient(135deg, #6366f1, #4f46e5);
+      background: linear-gradient(135deg, #3aaa6e, #2d8a58);
       color: white; border: none; font-size: 16px;
       cursor: pointer; display: flex; align-items: center;
       justify-content: center; flex-shrink: 0;
     }
     .user-ask-voice {
       width: 36px; height: 36px; border-radius: 8px;
-      background: #f1f5f9; border: 1.5px solid #c7d2fe;
+      background: #f0fdf6; border: 1.5px solid #c8e8d4;
       display: flex; align-items: center; justify-content: center;
       cursor: pointer; font-size: 16px; flex-shrink: 0;
       transition: all 0.2s;
@@ -1900,38 +1900,38 @@
     .ask-close-btn {
       margin-top: 10px; width: 100%;
       padding: 8px 0; border-radius: 8px;
-      background: transparent; border: 1.5px solid #c4b5fd;
-      color: #7c3aed; font-size: 12px; cursor: pointer;
+      background: transparent; border: 1.5px solid #c8e8d4;
+      color: #1a7a40; font-size: 12px; cursor: pointer;
       display: flex; align-items: center; justify-content: center; gap: 5px;
       transition: all 0.2s;
     }
-    .ask-close-btn:hover { background: #ede9fe; border-color: #7c3aed; }
-    /* AI 主动反问气泡（紫色） */
+    .ask-close-btn:hover { background: #f0fdf6; border-color: #3aaa6e; }
+    /* AI 主动反问气泡（绿色） */
     .ai-nudge-bubble {
-      background: linear-gradient(135deg, #f5f3ff, #ede9fe);
-      border: 1px solid #c4b5fd;
+      background: linear-gradient(135deg, #f0fdf6, #e8f7ef);
+      border: 1px solid #c8e8d4;
       border-radius: 12px 12px 12px 4px;
       padding: 10px 14px;
-      font-size: 13px; color: #5b21b6;
+      font-size: 13px; color: #1a7a40;
       max-width: 85%; line-height: 1.5;
     }
     /* AI回答用户问题的气泡样式 */
     .ai-reply-bubble {
-      background: linear-gradient(135deg, #f0f4ff, #e8efff);
-      border: 1px solid #c7d2fe; border-radius: 12px;
+      background: linear-gradient(135deg, #f0fdf6, #e8f7ef);
+      border: 1px solid #c8e8d4; border-radius: 12px;
       padding: 12px 14px; margin: 8px 0;
       font-size: 13px; color: #1e293b; line-height: 1.6;
       position: relative;
     }
     .ai-reply-bubble::before {
       content: '💡 AI解答';
-      display: block; font-size: 11px; color: #6366f1;
+      display: block; font-size: 11px; color: #1a7a40;
       font-weight: 600; margin-bottom: 6px;
     }
 
     .deep-chat-send {
       width: 40px; height: 40px; border-radius: 10px;
-      background: linear-gradient(135deg, #6366f1, #4f46e5);
+      background: linear-gradient(135deg, #3aaa6e, #2d8a58);
       border: none; color: white; font-size: 18px;
       cursor: pointer; flex-shrink: 0;
       display: flex; align-items: center; justify-content: center;
@@ -1981,7 +1981,7 @@
       font-size: 12px; margin-bottom: 5px;
     }
     .deep-score-label { color: #1e293b; font-weight: 600; }
-    .deep-score-val { color: #6366f1; font-weight: 700; }
+    .deep-score-val { color: #1a7a40; font-weight: 700; }
     .deep-score-track {
       height: 7px; background: #f1f5f9; border-radius: 99px; overflow: hidden;
     }
@@ -2012,8 +2012,8 @@
     .root-cause-item {
       display: flex; gap: 10px;
       padding: 10px 12px; border-radius: 10px;
-      margin-bottom: 8px; background: #f8fafc;
-      border-left: 3px solid #6366f1;
+      margin-bottom: 8px; background: #f8fdf9;
+      border-left: 3px solid #3aaa6e;
     }
     .root-cause-item:last-child { margin-bottom: 0; }
     .root-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
@@ -2029,7 +2029,7 @@
       cursor: pointer; border: 1.5px solid #e2e8f0;
       color: #94a3b8; transition: all 0.15s;
     }
-    .plan-tab.active { border-color: #6366f1; color: #4f46e5; background: #eef2ff; }
+    .plan-tab.active { border-color: #3aaa6e; color: #1a7a40; background: #f0fdf6; }
     .plan-content { display: none; }
     .plan-content.active { display: block; }
     .plan-row {
@@ -2047,7 +2047,7 @@
     .plan-step:last-child { border-bottom: none; }
     .plan-step-num {
       width: 22px; height: 22px; border-radius: 50%;
-      background: linear-gradient(135deg, #6366f1, #4f46e5);
+      background: linear-gradient(135deg, #3aaa6e, #2d8a58);
       color: white; font-size: 11px; font-weight: 700;
       display: flex; align-items: center; justify-content: center;
       flex-shrink: 0; margin-top: 2px;
@@ -2058,12 +2058,12 @@
     .risk-item {
       display: flex; gap: 10px; padding: 10px 12px;
       border-radius: 10px; margin-bottom: 8px;
-      background: #fff7ed; border-left: 3px solid #f59e0b;
+      background: #f0fdf6; border-left: 3px solid #2d8a58;
     }
     .risk-item:last-child { margin-bottom: 0; }
     .risk-item .r-icon { font-size: 18px; flex-shrink: 0; }
-    .risk-item strong { font-size: 13px; color: #92400e; display: block; margin-bottom: 2px; }
-    .risk-item p { font-size: 12px; color: #b45309; line-height: 1.5; }
+    .risk-item strong { font-size: 13px; color: #0f6630; display: block; margin-bottom: 2px; }
+    .risk-item p { font-size: 12px; color: #1a7a40; line-height: 1.5; }
 
     .case-ref-item {
       display: flex; gap: 12px; padding: 12px;
@@ -2072,7 +2072,7 @@
     .case-ref-item:last-child { margin-bottom: 0; }
     .case-ref-logo {
       width: 40px; height: 40px; border-radius: 10px;
-      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+      background: linear-gradient(135deg, #3aaa6e, #2d8a58);
       display: flex; align-items: center; justify-content: center;
       font-size: 20px; flex-shrink: 0;
     }
@@ -2106,7 +2106,7 @@
     .expert-avatar:first-child { margin-left: 0; }
     .expert-cta-btn {
       width: 100%; padding: 13px;
-      background: linear-gradient(135deg, #f59e0b, #d97706);
+      background: linear-gradient(135deg, #3aaa6e, #2d8a58);
       color: white; border: none; border-radius: 12px;
       font-size: 14px; font-weight: 700; cursor: pointer;
     }
@@ -2318,13 +2318,13 @@
     </div>
 
     <!-- 未登录状态：注册引导横幅（登录后自动隐藏） -->
-    <div id="sa-report-login-banner" style="margin: 12px 16px 0; padding: 14px 16px; background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%); border-radius: 14px; display: flex; align-items: center; gap: 12px; box-shadow: 0 4px 16px rgba(99,102,241,0.3);">
+    <div id="sa-report-login-banner" style="margin: 12px 16px 0; padding: 14px 16px; background: linear-gradient(135deg, #0a2a18 0%, #1a5c33 100%); border-radius: 14px; display: flex; align-items: center; gap: 12px; box-shadow: 0 4px 16px rgba(26,90,51,0.3);">
       <div style="font-size: 28px; flex-shrink:0;">🎁</div>
       <div style="flex: 1; min-width: 0;">
         <div style="font-size: 13px; font-weight: 700; color: white; margin-bottom: 3px;">免费注册，解锁报告 + 深度沟通权益</div>
-        <div style="font-size: 11px; color: rgba(255,255,255,0.7); line-height: 1.5;">完整行业对标 · 实施方案 · <span style="color:#a5b4fc;">1次AI顾问深度沟通</span></div>
+        <div style="font-size: 11px; color: rgba(255,255,255,0.7); line-height: 1.5;">完整行业对标 · 实施方案 · <span style="color:#7de8a8;">1次AI顾问深度沟通</span></div>
       </div>
-      <button onclick="saShowLoginModal()" style="width:auto; padding: 8px 16px; background: #111827; color: white; border: none; border-radius: 10px; font-size: 12px; font-weight: 700; cursor: pointer; white-space: nowrap; flex-shrink: 0;">立即注册</button>
+      <button onclick="saShowLoginModal()" style="width:auto; padding: 8px 16px; background: linear-gradient(135deg,#3aaa6e,#2d8a58); color: white; border: none; border-radius: 10px; font-size: 12px; font-weight: 700; cursor: pointer; white-space: nowrap; flex-shrink: 0;">立即注册</button>
     </div>
 
     <div class="report-content">
@@ -2355,18 +2355,18 @@
       </div>
 
       <!-- 行业对标数据（登录可见完整版） -->
-      <div class="report-card" style="background: linear-gradient(135deg, #f0f4ff 0%, #faf5ff 100%); border: 1px solid #e0e7ff;">
-        <h3 style="color: #4f46e5;">📊 行业AI成熟度对标</h3>
+      <div class="report-card" style="background: linear-gradient(135deg, #f0fdf6 0%, #e8f7ef 100%); border: 1px solid #c8e8d4;">
+        <h3 style="color: #1a7a40;">📊 行业AI成熟度对标</h3>
         <div id="sa-benchmark-preview">
           <!-- 公开部分：AI成熟度得分 -->
           <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
             <div style="flex: 1;">
               <div style="font-size: 13px; color: #64748b; margin-bottom: 6px;">您的AI成熟度得分</div>
               <div style="height: 10px; background: #e2e8f0; border-radius: 99px; overflow: hidden;">
-                <div id="sa-score-bar" style="height: 100%; width: 0%; background: linear-gradient(90deg, #6366f1, #8b5cf6); border-radius: 99px; transition: width 1s ease;"></div>
+                <div id="sa-score-bar" style="height: 100%; width: 0%; background: linear-gradient(90deg, #3aaa6e, #2d8a58); border-radius: 99px; transition: width 1s ease;"></div>
               </div>
             </div>
-            <div id="sa-score-num" style="font-size: 28px; font-weight: 700; color: #4f46e5; min-width: 52px; text-align: right;">--</div>
+            <div id="sa-score-num" style="font-size: 28px; font-weight: 700; color: #1a7a40; min-width: 52px; text-align: right;">--</div>
           </div>
           <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 16px;">
             <div style="background: white; border-radius: 10px; padding: 12px; text-align: center;">
@@ -2374,7 +2374,7 @@
               <div style="font-size: 12px; color: #64748b; margin-top: 2px;">同行业诊断企业数</div>
             </div>
             <div style="background: white; border-radius: 10px; padding: 12px; text-align: center;">
-              <div style="font-size: 22px; font-weight: 700; color: #f59e0b;" id="sa-rank-pct">--</div>
+              <div style="font-size: 22px; font-weight: 700; color: #1a7a40;" id="sa-rank-pct">--</div>
               <div style="font-size: 12px; color: #64748b; margin-top: 2px;">超过同行企业比例</div>
             </div>
           </div>
@@ -2403,10 +2403,10 @@
               <div style="font-size: 20px; margin-bottom: 6px;">🔒</div>
               <div style="font-size: 14px; font-weight: 600; color: #1e293b; margin-bottom: 4px;">登录解锁完整行业对标报告</div>
               <div style="font-size: 12px; color: #64748b; line-height:1.6;">查看行业详细排名 · 差距分析<br>
-                <span style="color:#6366f1; font-weight:500;">📞 注册后还可获得1次AI顾问深度沟通机会</span>
+                <span style="color:#1a7a40; font-weight:500;">📞 注册后还可获得1次AI顾问深度沟通机会</span>
               </div>
             </div>
-            <button onclick="saShowLoginModal()" style="padding: 12px 28px; background: #111827; color: white; border: none; border-radius: 12px; font-size: 14px; font-weight: 600; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">🚀 免费注册 · 立即解锁</button>
+            <button onclick="saShowLoginModal()" style="padding: 12px 28px; background: linear-gradient(135deg,#3aaa6e,#2d8a58); color: white; border: none; border-radius: 12px; font-size: 14px; font-weight: 600; cursor: pointer; box-shadow: 0 4px 12px rgba(58,170,110,0.3);">🚀 免费注册 · 立即解锁</button>
           </div>
         </div>
       </div>
@@ -2441,10 +2441,10 @@
             <div style="text-align: center; margin-bottom: 12px;">
               <div style="font-size: 14px; font-weight: 600; color: #1e293b; margin-bottom: 4px;">🔓 注册查看完整AI方案</div>
               <div style="font-size: 12px; color: #64748b; line-height:1.6;">含实施路径 · 预算估算 · 优先级建议<br>
-                <span style="color:#6366f1; font-weight:500;">💬 注册后赠送1次专属AI顾问深度沟通</span>
+                <span style="color:#1a7a40; font-weight:500;">💬 注册后赠送1次专属AI顾问深度沟通</span>
               </div>
             </div>
-            <button onclick="saShowLoginModal()" style="padding: 11px 24px; background: #111827; color: white; border: none; border-radius: 12px; font-size: 14px; font-weight: 600; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">免费注册 · 解锁完整方案</button>
+            <button onclick="saShowLoginModal()" style="padding: 11px 24px; background: linear-gradient(135deg,#3aaa6e,#2d8a58); color: white; border: none; border-radius: 12px; font-size: 14px; font-weight: 600; cursor: pointer; box-shadow: 0 4px 12px rgba(58,170,110,0.3);">免费注册 · 解锁完整方案</button>
           </div>
         </div>
       </div>
@@ -2624,7 +2624,7 @@
           <span class="deep-score-label">数据基础</span>
           <span class="deep-score-val" id="score-data">--</span>
         </div>
-        <div class="deep-score-track"><div class="deep-score-fill" id="bar-data" style="width:0%; background: linear-gradient(90deg,#6366f1,#8b5cf6);"></div></div>
+        <div class="deep-score-track"><div class="deep-score-fill" id="bar-data" style="width:0%; background: linear-gradient(90deg,#3aaa6e,#2d8a58);"></div></div>
       </div>
       <div class="deep-score-item">
         <div class="deep-score-label-row">
@@ -2638,7 +2638,7 @@
           <span class="deep-score-label">团队接受度</span>
           <span class="deep-score-val" id="score-team">--</span>
         </div>
-        <div class="deep-score-track"><div class="deep-score-fill" id="bar-team" style="width:0%; background: linear-gradient(90deg,#f59e0b,#d97706);"></div></div>
+        <div class="deep-score-track"><div class="deep-score-fill" id="bar-team" style="width:0%; background: linear-gradient(90deg,#2d8a58,#1a7a40);"></div></div>
       </div>
       <div class="deep-score-item">
         <div class="deep-score-label-row">
@@ -2652,7 +2652,7 @@
     <!-- 根因分析 -->
     <div class="deep-section">
       <div class="deep-section-head">
-        <div class="deep-section-icon" style="background:#eef2ff;">🔍</div>
+        <div class="deep-section-icon" style="background:#f0fdf6;">🔍</div>
         <span class="deep-section-name">业务痛点根因分析</span>
       </div>
       <div class="deep-section-body" id="dr-root-causes"></div>
@@ -2706,9 +2706,9 @@
     <!-- 专家顾问入口 -->
     <div class="expert-cta">
       <div class="expert-avatars">
-        <div class="expert-avatar" style="background:linear-gradient(135deg,#6366f1,#4f46e5);">👨‍💼</div>
-        <div class="expert-avatar" style="background:linear-gradient(135deg,#10b981,#059669);">👩‍💼</div>
-        <div class="expert-avatar" style="background:linear-gradient(135deg,#f59e0b,#d97706);">👨‍🔬</div>
+        <div class="expert-avatar" style="background:linear-gradient(135deg,#3aaa6e,#2d8a58);">👨‍💼</div>
+        <div class="expert-avatar" style="background:linear-gradient(135deg,#2d8a58,#1a7a40);">👩‍💼</div>
+        <div class="expert-avatar" style="background:linear-gradient(135deg,#1a7a40,#0f6630);">👨‍🔬</div>
       </div>
       <div class="expert-cta-title">预约专家1对1深度咨询</div>
       <div class="expert-cta-sub">报告已生成，但每个业务都有其独特性。<br>专家将结合您的报告，给出真正可落地的下一步。</div>
@@ -2793,10 +2793,10 @@
         <div style="margin-bottom:4px;">
           <div class="service-card" onclick="showProductDetail('agent')">
             <div class="service-card-header">
-              <div class="service-card-icon" style="background:linear-gradient(135deg,#eef2ff,#e0e7ff);">🤖</div>
+              <div class="service-card-icon" style="background:linear-gradient(135deg,#f0fdf6,#e8f7ef);">🤖</div>
               <div>
                 <div class="service-card-name">AI智能体定制</div>
-                <span class="service-card-tag" style="background:#eef2ff;color:#4f46e5;">核心产品</span>
+                <span class="service-card-tag" style="background:#f0fdf6;color:#1a7a40;">核心产品</span>
               </div>
             </div>
             <div class="service-card-desc">为企业打造专属AI助手，覆盖客服、销售、内训、数据查询等场景，7×24小时自动响应，大幅降低人力成本。</div>
@@ -2845,17 +2845,17 @@
         <!-- 真实案例小标题 -->
         <div style="display:flex;align-items:center;justify-content:space-between;margin:8px 0 12px;">
           <div style="font-size:15px;font-weight:700;color:#1e293b;">✅ 已落地真实案例</div>
-          <span style="font-size:11px;color:#6366f1;background:#eef2ff;padding:3px 10px;border-radius:99px;font-weight:600;">已验证</span>
+          <span style="font-size:11px;color:#1a7a40;background:#f0fdf6;padding:3px 10px;border-radius:99px;font-weight:600;">已验证</span>
         </div>
         <div id="our-case-list"></div>
 
         <!-- 咨询CTA -->
-        <div style="background:linear-gradient(135deg,#f5f3ff,#ede9fe); border-radius:14px; padding:16px; display:flex; align-items:center; justify-content:space-between; margin:12px 0 4px;" onclick="showPage('home-page')">
+        <div style="background:linear-gradient(135deg,#f0fdf6,#e8f7ef); border-radius:14px; padding:16px; display:flex; align-items:center; justify-content:space-between; margin:12px 0 4px;" onclick="showPage('home-page')">
           <div>
-            <div style="font-size:13px; font-weight:700; color:#4f46e5;">免费AI需求诊断</div>
-            <div style="font-size:11px; color:#7c3aed; margin-top:3px;">30分钟找到最适合你的AI方案</div>
+            <div style="font-size:13px; font-weight:700; color:#1a7a40;">免费AI需求诊断</div>
+            <div style="font-size:11px; color:#2d8a58; margin-top:3px;">30分钟找到最适合你的AI方案</div>
           </div>
-          <div style="background:#111827; color:white; font-size:12px; font-weight:600; padding:9px 16px; border-radius:99px; white-space:nowrap;">立即诊断 →</div>
+          <div style="background:linear-gradient(135deg,#3aaa6e,#2d8a58); color:white; font-size:12px; font-weight:600; padding:9px 16px; border-radius:99px; white-space:nowrap;">立即诊断 →</div>
         </div>
       </div>
       <div style="height:100px;"></div>
@@ -2999,12 +2999,12 @@
     <div style="padding: 20px; margin-top: -24px; position: relative; z-index: 1;">
       <!-- 用户信息卡片 -->
       <div style="background: white; border-radius: 16px; padding: 24px; margin-bottom: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); display: flex; align-items: center; gap: 16px;">
-        <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #6366f1, #4f46e5); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px; flex-shrink: 0;">👤</div>
+        <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #3aaa6e, #1a7a40); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px; flex-shrink: 0;">👤</div>
         <div style="flex: 1;">
           <div id="sa-user-name" style="font-size: 18px; font-weight: 600; color: #1e293b; margin-bottom: 4px;">未登录</div>
           <div id="sa-user-status" style="font-size: 14px; color: #64748b;">点击登录查看个人中心</div>
         </div>
-        <button id="sa-login-btn" onclick="saShowLoginModal()" style="width: auto; padding: 10px 20px; background: transparent; border: 2px solid #6366f1; color: #6366f1; border-radius: 10px; font-size: 14px; font-weight: 600; cursor: pointer;">登录/注册</button>
+        <button id="sa-login-btn" onclick="saShowLoginModal()" style="width: auto; padding: 10px 20px; background: transparent; border: 2px solid #3aaa6e; color: #1a7a40; border-radius: 10px; font-size: 14px; font-weight: 600; cursor: pointer;">登录/注册</button>
         <button id="sa-logout-btn" onclick="saLogout()" style="display:none; width: auto; padding: 10px 20px; background: transparent; border: 2px solid #ef4444; color: #ef4444; border-radius: 10px; font-size: 14px; font-weight: 600; cursor: pointer;">退出</button>
       </div>
 
@@ -3013,7 +3013,7 @@
         <div style="padding: 16px 20px; border-bottom: 1px solid #f1f5f9; display: flex; align-items: center; gap: 12px; cursor: pointer;" onclick="saShowHistory()">
           <span style="font-size: 20px;">📋</span>
           <span style="flex: 1; font-size: 15px; color: #1e293b; font-weight: 500;">我的诊断记录</span>
-          <span id="sa-history-count" style="font-size: 12px; color: #6366f1; background: #eef2ff; padding: 2px 8px; border-radius: 10px; margin-right: 4px;"></span>
+          <span id="sa-history-count" style="font-size: 12px; color: #1a7a40; background: #f0fdf6; padding: 2px 8px; border-radius: 10px; margin-right: 4px;"></span>
           <span style="color: #94a3b8;">›</span>
         </div>
         <div id="sa-history-list" style="display: none; padding: 12px 20px; max-height: 300px; overflow-y: auto;"></div>
