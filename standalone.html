@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>AI需求勘探助手 - 独立版</title>
+  <title>AI应用顾问</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { 
@@ -16,13 +16,13 @@
     
     /* 首页样式 */
     .home-header {
-      background: linear-gradient(135deg, #1e3a5f 0%, #2d5282 100%);
-      padding: 40px 20px;
+      background: #ffffff;
+      border-bottom: 1px solid #f1f5f9;
+      padding: 32px 20px 24px;
       text-align: center;
-      color: white;
     }
-    .home-header h1 { font-size: 24px; margin-bottom: 8px; }
-    .home-header p { font-size: 14px; opacity: 0.9; }
+    .home-header h1 { font-size: 24px; margin-bottom: 8px; color: #111827; font-weight: 800; letter-spacing: -0.5px; }
+    .home-header p { font-size: 14px; color: #6b7280; }
     
     .home-content { padding: 20px; }
     .start-card {
@@ -45,7 +45,7 @@
       min-height: 120px;
       font-family: inherit;
     }
-    textarea:focus { outline: none; border-color: #6366f1; }
+    textarea:focus { outline: none; border-color: #111827; }
     
     .char-count {
       text-align: right;
@@ -71,15 +71,16 @@
       cursor: not-allowed;
     }
     button:not(:disabled) {
-      background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+      background: #111827;
       color: white;
     }
     
     /* 行业选择页 */
     .page-header {
-      background: linear-gradient(135deg, #1e3a5f 0%, #2d5282 100%);
-      padding: 20px;
-      color: white;
+      background: #ffffff;
+      border-bottom: 1px solid #f1f5f9;
+      padding: 16px 20px;
+      color: #111827;
       display: flex;
       align-items: center;
       gap: 16px;
@@ -87,7 +88,7 @@
     .back-btn {
       width: 36px;
       height: 36px;
-      background: rgba(255,255,255,0.2);
+      background: #f3f4f6;
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -95,7 +96,7 @@
       cursor: pointer;
       font-size: 20px;
     }
-    .page-header h2 { font-size: 18px; }
+    .page-header h2 { font-size: 18px; font-weight: 700; }
     
     .industry-grid {
       display: grid;
@@ -113,7 +114,7 @@
       border: 2px solid transparent;
     }
     .industry-item:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
-    .industry-item.selected { border-color: #2563eb; background: #eff6ff; }
+    .industry-item.selected { border-color: #111827; background: #f9fafb; }
     .industry-icon { font-size: 28px; display: block; margin-bottom: 8px; }
     .industry-name { font-size: 13px; color: #1e293b; font-weight: 500; }
     
@@ -152,7 +153,7 @@
     
     .next-btn {
       margin: 20px;
-      background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+      background: #111827;
       color: white;
       display: none;
     }
@@ -178,16 +179,16 @@
       transition: all 0.2s;
     }
     .sub-page-item:hover {
-      border-color: #2563eb;
-      color: #1d4ed8;
+      border-color: #111827;
+      color: #111827;
       transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(37,99,235,0.15);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
     .sub-page-item.selected {
-      background: linear-gradient(135deg, #2563eb, #1d4ed8);
+      background: #111827;
       color: white;
-      border-color: #1d4ed8;
-      box-shadow: 0 4px 16px rgba(37,99,235,0.3);
+      border-color: #111827;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.2);
     }
     
     /* 底部导航 */
@@ -211,7 +212,7 @@
       opacity: 0.6;
       transition: all 0.2s;
     }
-    .nav-item.active { opacity: 1; color: #2563eb; }
+    .nav-item.active { opacity: 1; color: #111827; }
     .nav-icon { font-size: 20px; display: block; margin-bottom: 4px; }
     .nav-label { font-size: 11px; }
     
@@ -307,10 +308,10 @@
       border: 2px solid transparent;
       transition: all 0.2s;
     }
-    .scale-option:hover { border-color: #6366f1; }
+    .scale-option:hover { border-color: #111827; }
     .scale-option.selected {
-      border-color: #6366f1;
-      background: #eef2ff;
+      border-color: #111827;
+      background: #f9fafb;
     }
     .scale-option h4 { color: #1e293b; margin-bottom: 4px; }
     .scale-option p { color: #64748b; font-size: 13px; }
@@ -326,7 +327,7 @@
     .progress-bar-fill {
       height: 100%;
       border-radius: 99px;
-      background: linear-gradient(90deg, #2563eb, #6366f1);
+      background: #111827;
       transition: width 0.4s ease;
     }
     .progress-steps {
@@ -341,16 +342,17 @@
       text-align: center;
       flex: 1;
     }
-    .progress-step.done { color: #2563eb; font-weight: 600; }
-    .progress-step.current { color: #1e293b; font-weight: 700; }
+    .progress-step.done { color: #111827; font-weight: 600; }
+    .progress-step.current { color: #111827; font-weight: 700; }
 
     /* 业务特征标签页 */
     .tag-page-intro {
       margin: 16px 20px 0;
-      background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%);
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
       border-radius: 16px;
       padding: 18px 16px;
-      color: white;
+      color: #111827;
       position: relative;
       overflow: hidden;
     }
@@ -360,7 +362,7 @@
       top: -30px; right: -30px;
       width: 100px; height: 100px;
       border-radius: 50%;
-      background: rgba(99,102,241,0.25);
+      background: rgba(0,0,0,0.03);
     }
     .tag-page-intro::after {
       content: '';
@@ -368,18 +370,18 @@
       bottom: -20px; left: 20px;
       width: 60px; height: 60px;
       border-radius: 50%;
-      background: rgba(16,185,129,0.2);
+      background: rgba(0,0,0,0.02);
     }
     .tag-intro-badge {
       display: inline-flex;
       align-items: center;
       gap: 5px;
-      background: rgba(99,102,241,0.3);
-      border: 1px solid rgba(99,102,241,0.5);
+      background: #f3f4f6;
+      border: 1px solid #e5e7eb;
       border-radius: 99px;
       padding: 3px 10px;
       font-size: 11px;
-      color: #a5b4fc;
+      color: #6b7280;
       margin-bottom: 10px;
     }
     .tag-intro-title {
@@ -387,10 +389,11 @@
       font-weight: 700;
       margin-bottom: 6px;
       position: relative; z-index: 1;
+      color: #111827;
     }
     .tag-intro-sub {
       font-size: 12px;
-      color: rgba(255,255,255,0.7);
+      color: #6b7280;
       line-height: 1.6;
       position: relative; z-index: 1;
     }
@@ -462,13 +465,13 @@
       user-select: none;
       display: flex; align-items: center; gap: 4px;
     }
-    .tag-chip:hover { border-color: #6366f1; color: #4f46e5; background: #eef2ff; }
+    .tag-chip:hover { border-color: #111827; color: #111827; background: #f9fafb; }
     .tag-chip.selected {
-      background: linear-gradient(135deg, #6366f1, #4f46e5);
-      border-color: #4f46e5;
+      background: #111827;
+      border-color: #111827;
       color: white;
       font-weight: 600;
-      box-shadow: 0 2px 8px rgba(99,102,241,0.35);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
     }
     .tag-chip.ai-recommended {
       border-color: #34d399;
@@ -633,8 +636,8 @@
       user-select: none;
     }
     .discover-tab.active {
-      color: #4f46e5;
-      border-bottom-color: #6366f1;
+      color: #111827;
+      border-bottom-color: #111827;
     }
     .discover-tab .dtab-icon {
       font-size: 15px;
@@ -1647,30 +1650,31 @@
 
     /* ===== 深度诊断报告页 ===== */
     .deep-report-hero {
-      background: linear-gradient(135deg, #0f172a 0%, #1a1f3a 100%);
+      background: #f9fafb;
+      border-bottom: 1px solid #e5e7eb;
       padding: 24px 20px;
-      color: white; position: relative; overflow: hidden;
+      color: #111827; position: relative; overflow: hidden;
     }
     .deep-report-hero::before {
       content: ''; position: absolute;
       top: -50px; right: -50px;
       width: 200px; height: 200px; border-radius: 50%;
-      background: radial-gradient(circle, rgba(99,102,241,0.25), transparent 70%);
+      background: radial-gradient(circle, rgba(0,0,0,0.04), transparent 70%);
     }
     .deep-hero-badge {
       display: inline-flex; align-items: center; gap: 5px;
-      background: linear-gradient(135deg, #f59e0b, #d97706);
+      background: #111827;
       border-radius: 99px; padding: 4px 12px;
       font-size: 11px; font-weight: 700; color: white;
       margin-bottom: 12px;
     }
     .deep-hero-title {
       font-size: 20px; font-weight: 800; margin-bottom: 8px;
-      position: relative; z-index: 1;
+      position: relative; z-index: 1; color: #111827;
     }
     .deep-hero-meta {
       display: flex; gap: 16px; flex-wrap: wrap;
-      font-size: 12px; color: rgba(255,255,255,0.6);
+      font-size: 12px; color: #6b7280;
       position: relative; z-index: 1;
     }
     .deep-hero-meta span { display: flex; align-items: center; gap: 4px; }
@@ -1794,7 +1798,7 @@
 
     .expert-cta {
       margin: 16px 20px 20px;
-      background: linear-gradient(135deg, #0f172a, #1e293b);
+      background: #111827;
       border-radius: 16px; padding: 20px;
       color: white; text-align: center;
     }
@@ -1823,8 +1827,11 @@
   <!-- 首页 -->
   <div id="home-page" class="page active">
     <div class="home-header">
-      <h1>AI应用咨询顾问</h1>
-      <p>3分钟找到您的应用场景</p>
+      <div style="display:inline-flex;align-items:center;gap:8px;background:#f3f4f6;border-radius:99px;padding:5px 14px;font-size:12px;color:#6b7280;margin-bottom:14px;">
+        <span>🤖</span><span>AI应用顾问</span>
+      </div>
+      <h1>找到你的<br>AI落地机会</h1>
+      <p>3分钟精准诊断，输出定制化AI应用方案</p>
     </div>
     <div class="home-content">
 
@@ -1873,7 +1880,7 @@
       <div class="back-btn" onclick="showPage('industry-page')">‹</div>
       <div>
         <h2 id="sub-page-title">选择细分领域</h2>
-        <p id="sub-page-subtitle" style="font-size:13px; opacity:0.85; margin-top:2px;"></p>
+        <p id="sub-page-subtitle" style="font-size:13px; color:#6b7280; margin-top:2px;"></p>
       </div>
     </div>
     <div style="padding: 20px;">
@@ -2011,7 +2018,7 @@
         <div style="font-size: 13px; font-weight: 700; color: white; margin-bottom: 3px;">免费注册，解锁报告 + 深度沟通权益</div>
         <div style="font-size: 11px; color: rgba(255,255,255,0.7); line-height: 1.5;">完整行业对标 · 实施方案 · <span style="color:#a5b4fc;">1次AI顾问深度沟通</span></div>
       </div>
-      <button onclick="saShowLoginModal()" style="width:auto; padding: 8px 16px; background: linear-gradient(135deg, #6366f1, #4f46e5); color: white; border: none; border-radius: 10px; font-size: 12px; font-weight: 700; cursor: pointer; white-space: nowrap; flex-shrink: 0;">立即注册</button>
+      <button onclick="saShowLoginModal()" style="width:auto; padding: 8px 16px; background: #111827; color: white; border: none; border-radius: 10px; font-size: 12px; font-weight: 700; cursor: pointer; white-space: nowrap; flex-shrink: 0;">立即注册</button>
     </div>
 
     <div class="report-content">
@@ -2093,7 +2100,7 @@
                 <span style="color:#6366f1; font-weight:500;">📞 注册后还可获得1次AI顾问深度沟通机会</span>
               </div>
             </div>
-            <button onclick="saShowLoginModal()" style="padding: 12px 28px; background: linear-gradient(135deg, #6366f1, #4f46e5); color: white; border: none; border-radius: 12px; font-size: 14px; font-weight: 600; cursor: pointer; box-shadow: 0 4px 12px rgba(99,102,241,0.4);">🚀 免费注册 · 立即解锁</button>
+            <button onclick="saShowLoginModal()" style="padding: 12px 28px; background: #111827; color: white; border: none; border-radius: 12px; font-size: 14px; font-weight: 600; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">🚀 免费注册 · 立即解锁</button>
           </div>
         </div>
       </div>
@@ -2131,7 +2138,7 @@
                 <span style="color:#6366f1; font-weight:500;">💬 注册后赠送1次专属AI顾问深度沟通</span>
               </div>
             </div>
-            <button onclick="saShowLoginModal()" style="padding: 11px 24px; background: linear-gradient(135deg, #6366f1, #4f46e5); color: white; border: none; border-radius: 12px; font-size: 14px; font-weight: 600; cursor: pointer; box-shadow: 0 4px 12px rgba(99,102,241,0.4);">免费注册 · 解锁完整方案</button>
+            <button onclick="saShowLoginModal()" style="padding: 11px 24px; background: #111827; color: white; border: none; border-radius: 12px; font-size: 14px; font-weight: 600; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">免费注册 · 解锁完整方案</button>
           </div>
         </div>
       </div>
@@ -2279,7 +2286,7 @@
       <div class="back-btn" onclick="showPage('report-page')">‹</div>
       <div>
         <h2>深度诊断报告</h2>
-        <p style="font-size:11px; opacity:0.75; margin-top:2px;">👑 VIP专属</p>
+        <p style="font-size:11px; color:#6b7280; margin-top:2px;">👑 VIP专属</p>
       </div>
     </div>
 
@@ -2545,7 +2552,7 @@
             <div style="font-size:13px; font-weight:700; color:#4f46e5;">免费AI需求诊断</div>
             <div style="font-size:11px; color:#7c3aed; margin-top:3px;">30分钟找到最适合你的AI方案</div>
           </div>
-          <div style="background:linear-gradient(135deg,#6366f1,#8b5cf6); color:white; font-size:12px; font-weight:600; padding:9px 16px; border-radius:99px; white-space:nowrap;">立即诊断 →</div>
+          <div style="background:#111827; color:white; font-size:12px; font-weight:600; padding:9px 16px; border-radius:99px; white-space:nowrap;">立即诊断 →</div>
         </div>
       </div>
       <div style="height:100px;"></div>
@@ -2703,7 +2710,7 @@
       <!-- 关于我们 -->
       <div style="background: white; border-radius: 16px; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); text-align: center;">
         <div style="font-size: 32px; margin-bottom: 8px;">🤖</div>
-        <div style="font-size: 16px; font-weight: 600; color: #1e293b; margin-bottom: 4px;">AI需求勘探助手</div>
+        <div style="font-size: 16px; font-weight: 600; color: #1e293b; margin-bottom: 4px;">AI应用顾问</div>
         <div style="font-size: 13px; color: #64748b;">帮助企业发现AI应用机会</div>
       </div>
     </div>
@@ -2742,8 +2749,8 @@
           <label style="display:block; font-size:13px; color:#64748b; margin-bottom:6px;">密码</label>
           <input id="sa-login-pass" type="password" placeholder="请输入密码" style="width:100%; padding:12px 14px; border:2px solid #e2e8f0; border-radius:10px; font-size:15px; box-sizing:border-box; outline:none;" onfocus="this.style.borderColor='#6366f1'" onblur="this.style.borderColor='#e2e8f0'">
         </div>
-        <button onclick="saDoLogin()" style="width:100%; padding:14px; background:linear-gradient(135deg,#6366f1,#4f46e5); color:white; border:none; border-radius:12px; font-size:16px; font-weight:600; cursor:pointer;">登录</button>
-        <p style="text-align:center; font-size:13px; color:#94a3b8; margin-top:16px;">还没有账号？<span onclick="saSwitchTab('register')" style="color:#6366f1; cursor:pointer; font-weight:600;">立即注册（赠AI顾问沟通）</span></p>
+        <button onclick="saDoLogin()" style="width:100%; padding:14px; background:#111827; color:white; border:none; border-radius:12px; font-size:16px; font-weight:600; cursor:pointer;">登录</button>
+        <p style="text-align:center; font-size:13px; color:#94a3b8; margin-top:16px;">还没有账号？<span onclick="saSwitchTab('register')" style="color:#111827; cursor:pointer; font-weight:600;">立即注册（赠AI顾问沟通）</span></p>
       </div>
 
       <!-- 注册表单 -->
@@ -3702,7 +3709,7 @@
           <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(255,255,255,0.1),rgba(255,255,255,0.95));display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding-bottom:16px;">
             <div style="font-size:13px;font-weight:700;color:#1e293b;margin-bottom:4px;">🔒 完整方案需注册后查看</div>
             <div style="font-size:11px;color:#64748b;margin-bottom:12px;">注册免费，同时解锁全部案例详情</div>
-            <button onclick="closeCaseDetail();saShowLoginModal();" style="padding:10px 28px;background:linear-gradient(135deg,#6366f1,#4f46e5);color:white;border:none;border-radius:10px;font-size:13px;font-weight:700;cursor:pointer;">立即免费注册</button>
+            <button onclick="closeCaseDetail();saShowLoginModal();" style="padding:10px 28px;background:#111827;color:white;border:none;border-radius:10px;font-size:13px;font-weight:700;cursor:pointer;">立即免费注册</button>
           </div>
         </div>`;
       }
@@ -3853,7 +3860,7 @@
           <div class="ocd-label" style="color:#15803d;">📈 落地成效</div>
           <div class="ocd-text">${item.achievement}</div>
         </div>
-        <div onclick="closeOurCaseDetail();showPage('home-page');" style="margin-top:8px;background:linear-gradient(135deg,#6366f1,#8b5cf6);color:white;text-align:center;padding:14px;border-radius:14px;font-size:14px;font-weight:600;cursor:pointer;">免费诊断我的业务，获取定制方案 →</div>
+        <div onclick="closeOurCaseDetail();showPage('home-page');" style="margin-top:8px;background:#111827;color:white;text-align:center;padding:14px;border-radius:14px;font-size:14px;font-weight:600;cursor:pointer;">免费诊断我的业务，获取定制方案 →</div>
       `;
       document.getElementById('our-case-modal').classList.add('show');
     }
@@ -4022,7 +4029,7 @@
         <div class="news-detail-meta">📅 ${item.date} &nbsp;·&nbsp; 来源：${item.source}</div>
         <div class="news-detail-body">${item.body}</div>
         <div class="news-detail-insight">${item.insight}</div>
-        <div onclick="closeNewsDetail();showPage('home-page');" style="margin-top:16px;background:linear-gradient(135deg,#6366f1,#8b5cf6);color:white;text-align:center;padding:14px;border-radius:14px;font-size:14px;font-weight:600;cursor:pointer;">免费诊断我的业务，找到适合的AI方案 →</div>
+        <div onclick="closeNewsDetail();showPage('home-page');" style="margin-top:16px;background:#111827;color:white;text-align:center;padding:14px;border-radius:14px;font-size:14px;font-weight:600;cursor:pointer;">免费诊断我的业务，找到适合的AI方案 →</div>
       `;
       document.getElementById('news-modal').classList.add('show');
     }
