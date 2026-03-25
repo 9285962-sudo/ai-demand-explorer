@@ -262,13 +262,13 @@
     /* Hero头部：薄荷绿渐变，与全站统一 */
     .collect-hero {
       background: linear-gradient(180deg, #8fd4aa 0%, #b8e8cc 40%, #d8f1e6 70%, #eef9f2 100%);
-      padding: 24px 20px 44px;
+      padding: 24px 20px 20px;
     }
     .collect-hero-top {
       display: flex;
       align-items: center;
       gap: 14px;
-      margin-bottom: 20px;
+      margin-bottom: 18px;
     }
     .collect-hero-icon {
       width: 48px; height: 48px;
@@ -286,26 +286,42 @@
     .collect-hero-sub {
       font-size: 12px; color: #2d6644; line-height: 1.5;
     }
-    .collect-stats {
+
+    /* 三大类导航条 */
+    .collect-cat-nav {
       display: flex;
-      background: rgba(255,255,255,0.6);
-      border-radius: 14px;
-      padding: 12px 0;
-      backdrop-filter: blur(6px);
-      box-shadow: 0 2px 8px rgba(58,170,110,0.12);
+      gap: 8px;
     }
-    .collect-stat {
-      flex: 1; text-align: center;
+    .collect-cat-btn {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      padding: 10px 4px 8px;
+      background: rgba(255,255,255,0.55);
+      border: 1.5px solid rgba(58,170,110,0.3);
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.2s;
+      user-select: none;
+      backdrop-filter: blur(4px);
     }
-    .collect-stat-num {
-      font-size: 22px; font-weight: 800; color: #0f6630; margin-bottom: 2px;
+    .collect-cat-btn:hover {
+      background: rgba(255,255,255,0.8);
+      border-color: #3aaa6e;
     }
-    .collect-stat-label {
-      font-size: 10px; color: #3d7a58;
+    .collect-cat-btn.active {
+      background: #0f6630;
+      border-color: #0f6630;
+      box-shadow: 0 3px 10px rgba(15,102,48,0.35);
     }
-    .collect-stat-divider {
-      width: 1px; background: rgba(58,170,110,0.25); margin: 4px 0;
+    .ccb-icon { font-size: 20px; line-height: 1; }
+    .ccb-label {
+      font-size: 11px; font-weight: 700; color: #2d6644;
+      text-align: center; line-height: 1.2;
     }
+    .collect-cat-btn.active .ccb-label { color: white; }
 
     /* 内容区白底圆角 */
     .collect-body {
@@ -335,6 +351,25 @@
     .collect-field-label {
       font-size: 12px; color: #475569; font-weight: 600; margin-bottom: 8px;
     }
+
+    /* 表单：大类选择3个按钮 */
+    .collect-form-cats {
+      display: flex; gap: 7px;
+    }
+    .collect-form-cat {
+      flex: 1; text-align: center;
+      padding: 7px 4px;
+      background: #f0fdf6;
+      border: 1.5px solid #c8e8d4;
+      border-radius: 10px;
+      font-size: 12px; font-weight: 600; color: #3d7a58;
+      cursor: pointer; transition: all 0.2s; user-select: none;
+    }
+    .collect-form-cat:hover { background: #dcf5e8; border-color: #3aaa6e; }
+    .collect-form-cat.active {
+      background: #3aaa6e; border-color: #3aaa6e; color: white;
+    }
+
     .collect-textarea {
       width: 100%; box-sizing: border-box;
       border: 1.5px solid #d1eadb;
@@ -365,9 +400,9 @@
       box-shadow: 0 4px 14px rgba(58,170,110,0.35);
     }
 
-    /* 场景标签换绿色系 */
+    /* 场景标签（表单子场景选择） */
     .collect-scene-tag {
-      padding: 6px 14px;
+      padding: 5px 12px;
       background: #f0fdf6;
       border-radius: 99px;
       font-size: 12px;
@@ -388,7 +423,7 @@
     /* 场景类别浏览区 */
     .collect-browse-section { margin-bottom: 20px; }
 
-    /* 场景类别卡片Tab */
+    /* 场景类别卡片Tab（子场景，JS渲染） */
     .collect-scene-tabs {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -417,10 +452,10 @@
       border-color: #3aaa6e;
       box-shadow: 0 3px 10px rgba(58,170,110,0.3);
     }
-    .cst-icon { font-size: 20px; line-height: 1; }
+    .cst-icon { font-size: 18px; line-height: 1; }
     .cst-label {
-      font-size: 11px; font-weight: 600; color: #3d7a58;
-      text-align: center; line-height: 1.2;
+      font-size: 10px; font-weight: 600; color: #3d7a58;
+      text-align: center; line-height: 1.3;
     }
     .collect-scene-tab.active .cst-label { color: white; }
 
@@ -2807,34 +2842,33 @@
 
   <!-- 需求征集页面 -->
   <div id="collect-page" class="page">
-    <!-- 头部：薄荷绿渐变，包含标题+副标题+三数据 -->
+    <!-- 头部：薄荷绿渐变，标题+副标题+三大类导航条 -->
     <div class="collect-hero">
       <div class="collect-hero-top">
         <div class="collect-hero-icon">💡</div>
         <div>
           <div class="collect-hero-title">AI应用场景创意征集</div>
-          <div class="collect-hero-sub">说出你的业务痛点，我们帮你变成AI产品</div>
+          <div class="collect-hero-sub">说出你的场景需求，我们帮你评估AI实现路径</div>
         </div>
       </div>
-      <div class="collect-stats">
-        <div class="collect-stat">
-          <div class="collect-stat-num">268</div>
-          <div class="collect-stat-label">已征集创意</div>
+      <!-- 三大类导航条 -->
+      <div class="collect-cat-nav">
+        <div class="collect-cat-btn active" data-cat="life" onclick="switchCollectCat(this)">
+          <span class="ccb-icon">🏠</span>
+          <span class="ccb-label">生活场景</span>
         </div>
-        <div class="collect-stat-divider"></div>
-        <div class="collect-stat">
-          <div class="collect-stat-num">42</div>
-          <div class="collect-stat-label">已立项开发</div>
+        <div class="collect-cat-btn" data-cat="learn" onclick="switchCollectCat(this)">
+          <span class="ccb-icon">📚</span>
+          <span class="ccb-label">学习场景</span>
         </div>
-        <div class="collect-stat-divider"></div>
-        <div class="collect-stat">
-          <div class="collect-stat-num">156</div>
-          <div class="collect-stat-label">参与企业</div>
+        <div class="collect-cat-btn" data-cat="work" onclick="switchCollectCat(this)">
+          <span class="ccb-icon">💼</span>
+          <span class="ccb-label">工作与企业</span>
         </div>
       </div>
     </div>
 
-    <!-- 内容区白底圆角卡片区 -->
+    <!-- 内容区白底圆角 -->
     <div class="collect-body">
 
       <!-- 提交创意卡片 -->
@@ -2842,24 +2876,23 @@
         <div class="collect-card-title">📝 提交你的创意</div>
         <div class="collect-card-sub">不需要技术方案，只需说出痛点和期望，我们来评估AI实现路径</div>
 
-        <!-- 场景分类 -->
+        <!-- 所属大类 + 子场景级联选择 -->
         <div class="collect-field">
-          <div class="collect-field-label">所属场景类型</div>
-          <div id="collect-scene-tags" style="display:flex;flex-wrap:wrap;gap:8px;">
-            <div class="collect-scene-tag selected" data-scene="营销获客" onclick="selectCollectScene(this)">营销获客</div>
-            <div class="collect-scene-tag" data-scene="客户服务" onclick="selectCollectScene(this)">客户服务</div>
-            <div class="collect-scene-tag" data-scene="生产运营" onclick="selectCollectScene(this)">生产运营</div>
-            <div class="collect-scene-tag" data-scene="人力管理" onclick="selectCollectScene(this)">人力管理</div>
-            <div class="collect-scene-tag" data-scene="财务合规" onclick="selectCollectScene(this)">财务合规</div>
-            <div class="collect-scene-tag" data-scene="数据分析" onclick="selectCollectScene(this)">数据分析</div>
-            <div class="collect-scene-tag" data-scene="其他" onclick="selectCollectScene(this)">其他</div>
+          <div class="collect-field-label">所属场景</div>
+          <div class="collect-form-cats">
+            <div class="collect-form-cat active" data-fcat="life" onclick="selectFormCat(this)">🏠 生活</div>
+            <div class="collect-form-cat" data-fcat="learn" onclick="selectFormCat(this)">📚 学习</div>
+            <div class="collect-form-cat" data-fcat="work" onclick="selectFormCat(this)">💼 工作与企业</div>
+          </div>
+          <div id="collect-sub-tags" style="display:flex;flex-wrap:wrap;gap:7px;margin-top:8px;">
+            <!-- 动态渲染 -->
           </div>
         </div>
 
         <!-- 创意描述 -->
         <div class="collect-field">
           <div class="collect-field-label">创意描述 <span style="color:#ef4444;">*</span></div>
-          <textarea id="collect-idea-input" placeholder="例如：我们是连锁餐饮品牌，每天大量顾客反馈堆积在微信群无法及时处理，希望AI能自动整理并生成每日报告…" class="collect-textarea" oninput="updateCollectCharCount(this)"></textarea>
+          <textarea id="collect-idea-input" placeholder="描述你希望在哪个场景中引入AI，遇到了什么问题，期望AI能帮你做什么…" class="collect-textarea" oninput="updateCollectCharCount(this)"></textarea>
           <div style="text-align:right;font-size:11px;color:#94a3b8;margin-top:4px;"><span id="collect-char-count">0</span>/300</div>
         </div>
 
@@ -2873,46 +2906,19 @@
         <button onclick="submitCollectIdea()" class="collect-submit-btn">💡 提交我的创意</button>
       </div>
 
-      <!-- 场景类别浏览区 -->
+      <!-- 浏览区：当前大类下的子场景Tab + 创意列表 -->
       <div class="collect-browse-section">
         <div class="collect-section-header">
-          <span class="collect-section-title">🗂 按场景浏览创意</span>
+          <span class="collect-section-title" id="collect-browse-title">🗂 生活场景创意</span>
           <span class="collect-section-tip">点赞支持创意落地</span>
         </div>
 
-        <!-- 场景类别卡片切换 -->
+        <!-- 子场景卡片Tab（由JS渲染） -->
         <div id="collect-scene-tabs" class="collect-scene-tabs">
-          <div class="collect-scene-tab active" data-tab="营销获客" onclick="switchCollectTab(this)">
-            <span class="cst-icon">📣</span>
-            <span class="cst-label">营销获客</span>
-          </div>
-          <div class="collect-scene-tab" data-tab="客户服务" onclick="switchCollectTab(this)">
-            <span class="cst-icon">🎧</span>
-            <span class="cst-label">客户服务</span>
-          </div>
-          <div class="collect-scene-tab" data-tab="生产运营" onclick="switchCollectTab(this)">
-            <span class="cst-icon">⚙️</span>
-            <span class="cst-label">生产运营</span>
-          </div>
-          <div class="collect-scene-tab" data-tab="人力管理" onclick="switchCollectTab(this)">
-            <span class="cst-icon">👥</span>
-            <span class="cst-label">人力管理</span>
-          </div>
-          <div class="collect-scene-tab" data-tab="财务合规" onclick="switchCollectTab(this)">
-            <span class="cst-icon">📊</span>
-            <span class="cst-label">财务合规</span>
-          </div>
-          <div class="collect-scene-tab" data-tab="数据分析" onclick="switchCollectTab(this)">
-            <span class="cst-icon">🔍</span>
-            <span class="cst-label">数据分析</span>
-          </div>
-          <div class="collect-scene-tab" data-tab="其他" onclick="switchCollectTab(this)">
-            <span class="cst-icon">💡</span>
-            <span class="cst-label">其他</span>
-          </div>
+          <!-- 动态渲染 -->
         </div>
 
-        <!-- 对应场景创意列表 -->
+        <!-- 创意列表 -->
         <div id="collect-scene-list" class="collect-hot-list">
           <!-- 动态渲染 -->
         </div>
@@ -4311,26 +4317,102 @@
 
 
 
+
     // =============================================
     // 需求征集页逻辑
     // =============================================
 
-    // 热门创意数据（内置示例）
+    // 三大类场景数据
+    const collectCatData = {
+      life: {
+        label: '生活场景', icon: '🏠',
+        scenes: [
+          { key: '居家生活', icon: '🏡' },
+          { key: '健康医疗', icon: '🏥' },
+          { key: '出行交通', icon: '🚗' },
+          { key: '消费购物', icon: '🛍️' },
+          { key: '养老/育儿', icon: '👶' },
+          { key: '情感陪伴', icon: '💝' },
+          { key: '社交娱乐', icon: '🎉' },
+        ]
+      },
+      learn: {
+        label: '学习场景', icon: '📚',
+        scenes: [
+          { key: '学科学习', icon: '📖' },
+          { key: '语言学习', icon: '🌐' },
+          { key: '职业技能', icon: '🔧' },
+          { key: '备考提升', icon: '📝' },
+          { key: '知识管理', icon: '🗃️' },
+          { key: '创意创作', icon: '🎨' },
+        ]
+      },
+      work: {
+        label: '工作与企业', icon: '💼',
+        scenes: [
+          { key: '办公效率', icon: '💻' },
+          { key: '市场营销', icon: '📣' },
+          { key: '销售与客户服务', icon: '🤝' },
+          { key: '人力资源', icon: '👥' },
+          { key: '供应链与生产运营', icon: '⚙️' },
+          { key: '财务与法务', icon: '📊' },
+          { key: '设计创意', icon: '✏️' },
+          { key: '研发技术', icon: '🔬' },
+          { key: '数据分析与决策', icon: '🔍' },
+          { key: '企业综合管理', icon: '🏢' },
+        ]
+      }
+    };
+
+    // 热门创意数据（内置示例，使用新分类）
     const collectHotData = [
-      { id: 1, scene: '营销获客', title: '餐饮品牌顾客反馈AI汇总', desc: '希望AI自动收集各渠道顾客评价，每日生成摘要报告，帮助门店快速改进', likes: 128, liked: false },
-      { id: 2, scene: '客户服务', title: '售后工单自动分类与派单', desc: '售后问题五花八门，希望AI能自动识别问题类型并路由给对应处理人', likes: 97, liked: false },
-      { id: 3, scene: '生产运营', title: '仓库盘点AI辅助录入', desc: '目前盘点全靠人工，单次耗时2天，希望用AI+拍照实现快速识别盘点', likes: 84, liked: false },
-      { id: 4, scene: '数据分析', title: '销售数据自动周报生成', desc: '每周需要人工汇总销售数据做报告，希望AI自动生成并发送给各级负责人', likes: 76, liked: false },
-      { id: 5, scene: '人力管理', title: 'AI简历筛选+初步面试问答', desc: '招聘旺季时简历堆积，希望AI先做初筛并与候选人在线完成初步问答', likes: 61, liked: false },
+      { id: 1, scene: '市场营销', title: '餐饮品牌顾客反馈AI汇总', desc: '希望AI自动收集各渠道顾客评价，每日生成摘要报告，帮助门店快速改进', likes: 128, liked: false },
+      { id: 2, scene: '销售与客户服务', title: '售后工单自动分类与派单', desc: '售后问题五花八门，希望AI能自动识别问题类型并路由给对应处理人', likes: 97, liked: false },
+      { id: 3, scene: '供应链与生产运营', title: '仓库盘点AI辅助录入', desc: '目前盘点全靠人工，单次耗时2天，希望用AI+拍照实现快速识别盘点', likes: 84, liked: false },
+      { id: 4, scene: '数据分析与决策', title: '销售数据自动周报生成', desc: '每周需要人工汇总销售数据做报告，希望AI自动生成并发送给各级负责人', likes: 76, liked: false },
+      { id: 5, scene: '人力资源', title: 'AI简历筛选+初步面试问答', desc: '招聘旺季时简历堆积，希望AI先做初筛并与候选人在线完成初步问答', likes: 61, liked: false },
+      { id: 6, scene: '健康医疗', title: '慢病患者用药提醒与复诊助手', desc: '老人记忆力减退常忘记按时服药，希望AI每天主动提醒并记录健康日志', likes: 55, liked: false },
+      { id: 7, scene: '学科学习', title: '初中错题AI分析与针对练习', desc: '孩子每次考试错的题重复出现，希望AI分析错题规律并生成专项练习题', likes: 48, liked: false },
+      { id: 8, scene: '办公效率', title: '会议纪要自动生成与任务跟踪', desc: '每次开完会需要专人整理纪要，希望AI录音后自动生成摘要并提取行动项', likes: 43, liked: false },
     ];
 
     // 用户提交的创意（本地存储）
     let userCollectIdeas = JSON.parse(localStorage.getItem('collectIdeas') || '[]');
 
-    // 当前选中浏览场景
-    let collectActiveTab = '营销获客';
+    // 当前浏览大类 & 子场景
+    let collectActiveCat = 'life';
+    let collectActiveTab = collectCatData.life.scenes[0].key;
 
-    // 场景Tab切换
+    // 表单选中大类 & 子场景
+    let collectFormCat = 'life';
+    let collectSelectedScene = collectCatData.life.scenes[0].key;
+
+    // ---- 头部大类导航切换 ----
+    function switchCollectCat(el) {
+      document.querySelectorAll('.collect-cat-btn').forEach(b => b.classList.remove('active'));
+      el.classList.add('active');
+      collectActiveCat = el.dataset.cat;
+      const cat = collectCatData[collectActiveCat];
+      document.getElementById('collect-browse-title').textContent = `🗂 ${cat.label}创意`;
+      collectActiveTab = cat.scenes[0].key;
+      renderSubTabs();
+      renderCollectSceneList();
+    }
+
+    // ---- 渲染浏览区子场景Tab ----
+    function renderSubTabs() {
+      const cat = collectCatData[collectActiveCat];
+      const container = document.getElementById('collect-scene-tabs');
+      if (!container) return;
+      container.innerHTML = cat.scenes.map(s =>
+        `<div class="collect-scene-tab ${s.key === collectActiveTab ? 'active' : ''}" data-tab="${s.key}" onclick="switchCollectTab(this)">
+          <span class="cst-icon">${s.icon}</span>
+          <span class="cst-label">${s.key}</span>
+        </div>`
+      ).join('');
+    }
+
+    // ---- 子场景Tab切换 ----
     function switchCollectTab(el) {
       document.querySelectorAll('.collect-scene-tab').forEach(t => t.classList.remove('active'));
       el.classList.add('active');
@@ -4338,7 +4420,7 @@
       renderCollectSceneList();
     }
 
-    // 渲染当前场景创意列表
+    // ---- 渲染当前场景创意列表 ----
     function renderCollectSceneList() {
       const container = document.getElementById('collect-scene-list');
       if (!container) return;
@@ -4372,22 +4454,29 @@
       }).join('');
     }
 
-    // 初始化需求征集页
-    function initCollectPage() {
-      collectActiveTab = '营销获客';
-      document.querySelectorAll('.collect-scene-tab').forEach(t => {
-        t.classList.toggle('active', t.dataset.tab === collectActiveTab);
-      });
-      renderCollectSceneList();
+    // ---- 表单：大类选择 ----
+    function selectFormCat(el) {
+      document.querySelectorAll('.collect-form-cat').forEach(b => b.classList.remove('active'));
+      el.classList.add('active');
+      collectFormCat = el.dataset.fcat;
+      collectSelectedScene = collectCatData[collectFormCat].scenes[0].key;
+      renderFormSubTags();
     }
 
-    // 渲染热门创意榜（兼容旧调用，已废弃，保留空函数防报错）
-    function renderCollectHotList() { renderCollectSceneList(); }
+    // ---- 渲染表单子场景标签 ----
+    function renderFormSubTags() {
+      const scenes = collectCatData[collectFormCat].scenes;
+      const container = document.getElementById('collect-sub-tags');
+      if (!container) return;
+      container.innerHTML = scenes.map((s) =>
+        `<div class="collect-scene-tag ${s.key === collectSelectedScene ? 'selected' : ''}"
+          data-scene="${s.key}" onclick="selectCollectScene(this)">${s.key}</div>`
+      ).join('');
+    }
 
-    // 提交场景标签选择（提交表单用）
-    let collectSelectedScene = '营销获客';
+    // ---- 表单子场景选择 ----
     function selectCollectScene(el) {
-      document.querySelectorAll('.collect-scene-tag').forEach(t => t.classList.remove('selected'));
+      document.querySelectorAll('#collect-sub-tags .collect-scene-tag').forEach(t => t.classList.remove('selected'));
       el.classList.add('selected');
       collectSelectedScene = el.dataset.scene;
     }
@@ -4419,19 +4508,42 @@
       };
       userCollectIdeas.unshift(newIdea);
       localStorage.setItem('collectIdeas', JSON.stringify(userCollectIdeas));
-      // 清空表单
       document.getElementById('collect-idea-input').value = '';
       document.getElementById('collect-contact').value = '';
       document.getElementById('collect-char-count').textContent = '0';
       saToast('✅ 创意已提交！我们将在3个工作日内评估并回复');
-      // 切换到刚提交的场景Tab
-      const targetTab = document.querySelector(`.collect-scene-tab[data-tab="${collectSelectedScene}"]`);
-      if (targetTab) switchCollectTab(targetTab);
-      else renderCollectSceneList();
+      // 提交后切换浏览区到对应大类+子场景
+      const submittedScene = collectSelectedScene;
+      let targetCat = 'life';
+      for (const [cat, data] of Object.entries(collectCatData)) {
+        if (data.scenes.some(s => s.key === submittedScene)) { targetCat = cat; break; }
+      }
+      collectActiveCat = targetCat;
+      collectActiveTab = submittedScene;
+      document.querySelectorAll('.collect-cat-btn').forEach(b => b.classList.toggle('active', b.dataset.cat === targetCat));
+      document.getElementById('collect-browse-title').textContent = `🗂 ${collectCatData[targetCat].label}创意`;
+      renderSubTabs();
+      renderCollectSceneList();
     }
 
+    // 初始化需求征集页
+    function initCollectPage() {
+      collectActiveCat = 'life';
+      collectActiveTab = collectCatData.life.scenes[0].key;
+      collectFormCat = 'life';
+      collectSelectedScene = collectCatData.life.scenes[0].key;
+      document.querySelectorAll('.collect-cat-btn').forEach(b => b.classList.toggle('active', b.dataset.cat === 'life'));
+      document.getElementById('collect-browse-title').textContent = '🗂 生活场景创意';
+      document.querySelectorAll('.collect-form-cat').forEach(b => b.classList.toggle('active', b.dataset.fcat === 'life'));
+      renderFormSubTags();
+      renderSubTabs();
+      renderCollectSceneList();
+    }
 
-    // 点赞切换
+    // 兼容旧调用
+    function renderCollectHotList() { renderCollectSceneList(); }
+
+
     function toggleCollectLike(id, btn) {
       const item = collectHotData.find(i => i.id === id) || userCollectIdeas.find(i => i.id === id);
       if (!item) return;
