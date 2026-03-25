@@ -262,7 +262,7 @@
     /* Hero头部：薄荷绿渐变，与全站统一 */
     .collect-hero {
       background: linear-gradient(180deg, #8fd4aa 0%, #b8e8cc 40%, #d8f1e6 70%, #eef9f2 100%);
-      padding: 24px 20px 20px;
+      padding: 24px 20px 36px;
     }
     .collect-hero-top {
       display: flex;
@@ -325,7 +325,7 @@
 
     /* 内容区白底圆角 */
     .collect-body {
-      margin-top: -24px;
+      margin-top: -16px;
       position: relative;
       z-index: 1;
       background: white;
@@ -393,8 +393,8 @@
     .collect-input:focus { border-color: #3aaa6e; }
     .collect-submit-btn {
       width: 100%; padding: 14px;
-      background: linear-gradient(135deg, #3aaa6e, #2d8a58);
-      color: white; border: none; border-radius: 12px;
+      background: linear-gradient(135deg, #3aaa6e, #2d8a58) !important;
+      color: white !important; border: none; border-radius: 12px;
       font-size: 15px; font-weight: 700; cursor: pointer;
       letter-spacing: 0.5px;
       box-shadow: 0 4px 14px rgba(58,170,110,0.35);
@@ -2863,7 +2863,7 @@
         </div>
         <div class="collect-cat-btn" data-cat="work" onclick="switchCollectCat(this)">
           <span class="ccb-icon">💼</span>
-          <span class="ccb-label">工作与企业</span>
+          <span class="ccb-label">企业经营场景</span>
         </div>
       </div>
     </div>
@@ -2882,7 +2882,7 @@
           <div class="collect-form-cats">
             <div class="collect-form-cat active" data-fcat="life" onclick="selectFormCat(this)">🏠 生活</div>
             <div class="collect-form-cat" data-fcat="learn" onclick="selectFormCat(this)">📚 学习</div>
-            <div class="collect-form-cat" data-fcat="work" onclick="selectFormCat(this)">💼 工作与企业</div>
+            <div class="collect-form-cat" data-fcat="work" onclick="selectFormCat(this)">💼 企业经营</div>
           </div>
           <div id="collect-sub-tags" style="display:flex;flex-wrap:wrap;gap:7px;margin-top:8px;">
             <!-- 动态渲染 -->
@@ -2906,23 +2906,8 @@
         <button onclick="submitCollectIdea()" class="collect-submit-btn">💡 提交我的创意</button>
       </div>
 
-      <!-- 浏览区：当前大类下的子场景Tab + 创意列表 -->
-      <div class="collect-browse-section">
-        <div class="collect-section-header">
-          <span class="collect-section-title" id="collect-browse-title">🗂 生活场景创意</span>
-          <span class="collect-section-tip">点赞支持创意落地</span>
-        </div>
-
-        <!-- 子场景卡片Tab（由JS渲染） -->
-        <div id="collect-scene-tabs" class="collect-scene-tabs">
-          <!-- 动态渲染 -->
-        </div>
-
-        <!-- 创意列表 -->
-        <div id="collect-scene-list" class="collect-hot-list">
-          <!-- 动态渲染 -->
-        </div>
-      </div>
+      <!-- 浏览区：已移至独立页面，点击导航条跳转 -->
+      <!-- <div class="collect-browse-section">...</div> -->
 
       <!-- 参与规则 -->
       <div class="collect-rules">
@@ -2947,6 +2932,25 @@
 
     </div><!-- /collect-body -->
 
+    <div style="height:100px;"></div>
+  </div>
+
+  <!-- 场景创意浏览页（从需求征集导航条跳转） -->
+  <div id="collect-browse-page" class="page">
+    <!-- 头部 -->
+    <div class="page-header">
+      <div class="back-btn" onclick="showPage('collect-page')">‹</div>
+      <h2 id="browse-page-title">生活场景创意</h2>
+    </div>
+
+    <!-- 白底圆角内容区 -->
+    <div style="margin-top:-24px;position:relative;z-index:1;background:white;border-radius:20px 20px 0 0;padding:20px 16px 0;">
+      <!-- 子场景卡片Tab -->
+      <div id="browse-scene-tabs" class="collect-scene-tabs" style="margin-bottom:16px;"></div>
+
+      <!-- 创意列表 -->
+      <div id="browse-scene-list" class="collect-hot-list"></div>
+    </div>
     <div style="height:100px;"></div>
   </div>
 
@@ -4348,7 +4352,7 @@
         ]
       },
       work: {
-        label: '工作与企业', icon: '💼',
+        label: '企业经营场景', icon: '💼',
         scenes: [
           { key: '办公效率', icon: '💻' },
           { key: '市场营销', icon: '📣' },
@@ -4387,51 +4391,61 @@
     let collectFormCat = 'life';
     let collectSelectedScene = collectCatData.life.scenes[0].key;
 
-    // ---- 头部大类导航切换 ----
+    // ---- 头部大类导航切换 → 跳转到浏览页 ----
     function switchCollectCat(el) {
       document.querySelectorAll('.collect-cat-btn').forEach(b => b.classList.remove('active'));
       el.classList.add('active');
       collectActiveCat = el.dataset.cat;
       const cat = collectCatData[collectActiveCat];
-      document.getElementById('collect-browse-title').textContent = `🗂 ${cat.label}创意`;
       collectActiveTab = cat.scenes[0].key;
-      renderSubTabs();
-      renderCollectSceneList();
+      // 跳转到独立浏览页
+      openCollectBrowsePage(collectActiveCat);
     }
 
-    // ---- 渲染浏览区子场景Tab ----
-    function renderSubTabs() {
+    // ---- 打开创意浏览页 ----
+    function openCollectBrowsePage(catKey) {
+      collectActiveCat = catKey;
+      const cat = collectCatData[catKey];
+      collectActiveTab = cat.scenes[0].key;
+      document.getElementById('browse-page-title').textContent = cat.icon + ' ' + cat.label + '创意';
+      renderBrowseSubTabs();
+      renderBrowseSceneList();
+      showPage('collect-browse-page');
+    }
+
+    // ---- 渲染浏览页子场景Tab ----
+    function renderBrowseSubTabs() {
       const cat = collectCatData[collectActiveCat];
-      const container = document.getElementById('collect-scene-tabs');
+      const container = document.getElementById('browse-scene-tabs');
       if (!container) return;
       container.innerHTML = cat.scenes.map(s =>
-        `<div class="collect-scene-tab ${s.key === collectActiveTab ? 'active' : ''}" data-tab="${s.key}" onclick="switchCollectTab(this)">
+        `<div class="collect-scene-tab ${s.key === collectActiveTab ? 'active' : ''}" data-tab="${s.key}" onclick="switchBrowseTab(this)">
           <span class="cst-icon">${s.icon}</span>
           <span class="cst-label">${s.key}</span>
         </div>`
       ).join('');
     }
 
-    // ---- 子场景Tab切换 ----
-    function switchCollectTab(el) {
-      document.querySelectorAll('.collect-scene-tab').forEach(t => t.classList.remove('active'));
+    // ---- 浏览页子场景Tab切换 ----
+    function switchBrowseTab(el) {
+      document.querySelectorAll('#browse-scene-tabs .collect-scene-tab').forEach(t => t.classList.remove('active'));
       el.classList.add('active');
       collectActiveTab = el.dataset.tab;
-      renderCollectSceneList();
+      renderBrowseSceneList();
     }
 
-    // ---- 渲染当前场景创意列表 ----
-    function renderCollectSceneList() {
-      const container = document.getElementById('collect-scene-list');
+    // ---- 渲染浏览页创意列表 ----
+    function renderBrowseSceneList() {
+      const container = document.getElementById('browse-scene-list');
       if (!container) return;
       const allItems = [...collectHotData, ...userCollectIdeas]
         .filter(i => i.scene === collectActiveTab)
         .sort((a, b) => b.likes - a.likes);
       if (allItems.length === 0) {
-        container.innerHTML = `<div style="text-align:center;padding:32px 0;color:#94a3b8;font-size:13px;">
-          <div style="font-size:32px;margin-bottom:8px;">📭</div>
+        container.innerHTML = `<div style="text-align:center;padding:48px 0;color:#94a3b8;font-size:13px;">
+          <div style="font-size:40px;margin-bottom:12px;">📭</div>
           <div>暂无「${collectActiveTab}」场景创意</div>
-          <div style="font-size:12px;margin-top:4px;">成为第一个提交的人吧！</div>
+          <div style="font-size:12px;margin-top:6px;">成为第一个提交创意的人吧！</div>
         </div>`;
         return;
       }
@@ -4453,6 +4467,8 @@
         </div>`;
       }).join('');
     }
+
+
 
     // ---- 表单：大类选择 ----
     function selectFormCat(el) {
@@ -4512,7 +4528,7 @@
       document.getElementById('collect-contact').value = '';
       document.getElementById('collect-char-count').textContent = '0';
       saToast('✅ 创意已提交！我们将在3个工作日内评估并回复');
-      // 提交后切换浏览区到对应大类+子场景
+      // 提交后跳转浏览页，显示对应大类+子场景
       const submittedScene = collectSelectedScene;
       let targetCat = 'life';
       for (const [cat, data] of Object.entries(collectCatData)) {
@@ -4521,9 +4537,11 @@
       collectActiveCat = targetCat;
       collectActiveTab = submittedScene;
       document.querySelectorAll('.collect-cat-btn').forEach(b => b.classList.toggle('active', b.dataset.cat === targetCat));
-      document.getElementById('collect-browse-title').textContent = `🗂 ${collectCatData[targetCat].label}创意`;
-      renderSubTabs();
-      renderCollectSceneList();
+      openCollectBrowsePage(targetCat);
+      // 再手动切到提交的子场景
+      collectActiveTab = submittedScene;
+      renderBrowseSubTabs();
+      renderBrowseSceneList();
     }
 
     // 初始化需求征集页
@@ -4551,7 +4569,7 @@
       item.likes += item.liked ? 1 : -1;
       if (item.likes < 0) item.likes = 0;
       localStorage.setItem('collectIdeas', JSON.stringify(userCollectIdeas));
-      renderCollectSceneList();
+      renderBrowseSceneList();
     }
     
     // 格式化数字
@@ -4581,7 +4599,7 @@
       window.scrollTo(0, 0);
       
       // 更新导航状态（4个菜单）
-      const navMap = { 'home-page': 0, 'discover-page': 1, 'collect-page': 2, 'profile-page': 3 };
+      const navMap = { 'home-page': 0, 'discover-page': 1, 'collect-page': 2, 'collect-browse-page': 2, 'profile-page': 3 };
       document.querySelectorAll('.nav-item').forEach((item, index) => {
         item.classList.toggle('active', navMap[pageId] === index);
       });
