@@ -45,7 +45,7 @@
       min-height: 120px;
       font-family: inherit;
     }
-    textarea:focus { outline: none; border-color: #111827; }
+    textarea:focus { outline: none; border-color: #3aaa6e; }
     
     .char-count {
       text-align: right;
@@ -77,10 +77,10 @@
     
     /* 行业选择页 */
     .page-header {
-      background: #ffffff;
-      border-bottom: 1px solid #f1f5f9;
+      background: linear-gradient(180deg, #8fd4aa 0%, #c2ebd5 60%, #eaf7f0 100%);
+      border-bottom: none;
       padding: 16px 20px;
-      color: #111827;
+      color: #0f2a1c;
       display: flex;
       align-items: center;
       gap: 16px;
@@ -88,15 +88,16 @@
     .back-btn {
       width: 36px;
       height: 36px;
-      background: #f3f4f6;
+      background: rgba(255,255,255,0.55);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
       font-size: 20px;
+      backdrop-filter: blur(4px);
     }
-    .page-header h2 { font-size: 18px; font-weight: 700; }
+    .page-header h2 { font-size: 18px; font-weight: 700; color: #0f2a1c; }
     
     .industry-grid {
       display: grid;
@@ -114,7 +115,7 @@
       border: 2px solid transparent;
     }
     .industry-item:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
-    .industry-item.selected { border-color: #111827; background: #f9fafb; }
+    .industry-item.selected { border-color: #3aaa6e; background: #f0fdf6; }
     .industry-icon { font-size: 28px; display: block; margin-bottom: 8px; }
     .industry-name { font-size: 13px; color: #1e293b; font-weight: 500; }
     
@@ -212,7 +213,7 @@
       opacity: 0.6;
       transition: all 0.2s;
     }
-    .nav-item.active { opacity: 1; color: #111827; }
+    .nav-item.active { opacity: 1; color: #1a7a40; }
     .nav-icon { font-size: 20px; display: block; margin-bottom: 4px; }
     .nav-label { font-size: 11px; }
     
@@ -327,7 +328,7 @@
     .progress-bar-fill {
       height: 100%;
       border-radius: 99px;
-      background: #111827;
+      background: linear-gradient(90deg, #3aaa6e, #8fd4aa);
       transition: width 0.4s ease;
     }
     .progress-steps {
@@ -342,8 +343,8 @@
       text-align: center;
       flex: 1;
     }
-    .progress-step.done { color: #111827; font-weight: 600; }
-    .progress-step.current { color: #111827; font-weight: 700; }
+    .progress-step.done { color: #2d7a50; font-weight: 600; }
+    .progress-step.current { color: #0f2a1c; font-weight: 700; }
 
     /* 业务特征标签页 */
     .tag-page-intro {
@@ -636,8 +637,8 @@
       user-select: none;
     }
     .discover-tab.active {
-      color: #111827;
-      border-bottom-color: #111827;
+      color: #1a7a40;
+      border-bottom-color: #3aaa6e;
     }
     .discover-tab .dtab-icon {
       font-size: 15px;
@@ -1650,27 +1651,27 @@
 
     /* ===== 深度诊断报告页 ===== */
     .deep-report-hero {
-      background: #f9fafb;
-      border-bottom: 1px solid #e5e7eb;
+      background: linear-gradient(180deg, #8fd4aa 0%, #c2ebd5 55%, #eaf7f0 100%);
+      border-bottom: none;
       padding: 24px 20px;
-      color: #111827; position: relative; overflow: hidden;
+      color: #0f2a1c; position: relative; overflow: hidden;
     }
     .deep-report-hero::before {
       content: ''; position: absolute;
       top: -50px; right: -50px;
       width: 200px; height: 200px; border-radius: 50%;
-      background: radial-gradient(circle, rgba(0,0,0,0.04), transparent 70%);
+      background: radial-gradient(circle, rgba(255,255,255,0.25), transparent 70%);
     }
     .deep-hero-badge {
       display: inline-flex; align-items: center; gap: 5px;
-      background: #111827;
+      background: #0f2a1c;
       border-radius: 99px; padding: 4px 12px;
       font-size: 11px; font-weight: 700; color: white;
       margin-bottom: 12px;
     }
     .deep-hero-title {
       font-size: 20px; font-weight: 800; margin-bottom: 8px;
-      position: relative; z-index: 1; color: #111827;
+      position: relative; z-index: 1; color: #0f2a1c;
     }
     .deep-hero-meta {
       display: flex; gap: 16px; flex-wrap: wrap;
